@@ -1,0 +1,1803 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://<ton-user>.github.io/<ton-repo>/chapitre/3.donnee/">
+      
+      
+        <link rel="prev" href="../2.variable/">
+      
+      
+        <link rel="next" href="../4.fonction/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.20">
+    
+    
+      
+        <title>3. Types de données - Formation Python pour les enseignants de Physique-Chimie</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.e53b48f4.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#3-types-de-donnees" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Formation Python pour les enseignants de Physique-Chimie" class="md-header__button md-logo" aria-label="Formation Python pour les enseignants de Physique-Chimie" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Formation Python pour les enseignants de Physique-Chimie
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              3. Types de données
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Formation Python pour les enseignants de Physique-Chimie" class="md-nav__button md-logo" aria-label="Formation Python pour les enseignants de Physique-Chimie" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Formation Python pour les enseignants de Physique-Chimie
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../avant-propos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Avant-propos
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Chapitres
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Chapitres
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1.environnement/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    1. Environnement de développement
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2.variable/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2. Variables
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    3. Types de données
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    3. Types de données
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#31-les-nombres-entiers-et-flottants" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1 Les nombres entiers et flottants
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.1 Les nombres entiers et flottants">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#311-operations-mathematiques" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1.1 Opérations mathématiques
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#32-les-booleens" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2 Les booléens
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.2 Les booléens">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#321-operations-de-logiques" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2.1 Opérations de logiques
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#322-operations-de-comparaisons" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2.2 Opérations de comparaisons
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#33-les-chaines-de-caracteres" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3 Les chaînes de caractères
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.3 Les chaînes de caractères">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#331-slicing" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3.1 Slicing
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#332-concatenation-et-repetition" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3.2 Concaténation et Répétition
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#333-comparaison" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3.3 Comparaison
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#334-affichage-et-formatage" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3.4 Affichage et Formatage
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#335-la-notation-scientifique-et-les-chiffres-significatifs" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3.5 La notation scientifique et les chiffres significatifs
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#34-les-listes" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.4 Les listes
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.4 Les listes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#341-slicing-et-modification" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.4.1 Slicing et Modification
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#342-longueur" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.4.2 Longueur
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#343-operations-dappartenance" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.4.3 Opérations d'appartenance
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#35-comment-connaitre-le-type-dune-donnee-dans-une-variable" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.5 Comment connaître le type d'une donnée dans une variable ?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#26-comment-convertir-un-type-de-donnees-en-un-autre-type" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.6 Comment convertir un type de données en un autre type ?
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../4.fonction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    4. Fonctions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../5.condition/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    5. Structures conditionnelles
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../6.boucle/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    6. Boucles
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../7.module/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    7. Modules
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../8.numpy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    8. Module Numpy
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../9.matplotlib/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    9. Module Matplotlib
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10.scipy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    10. Module Scipy
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Ressources
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Ressources
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ressource/generalite/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Généralités
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ressource/seconde/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Seconde Générale et Technologique
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ressource/premiere/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Première Générale
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ressource/terminale/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Terminale Générale
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../annexe/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Annexes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#31-les-nombres-entiers-et-flottants" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1 Les nombres entiers et flottants
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.1 Les nombres entiers et flottants">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#311-operations-mathematiques" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1.1 Opérations mathématiques
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#32-les-booleens" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2 Les booléens
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.2 Les booléens">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#321-operations-de-logiques" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2.1 Opérations de logiques
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#322-operations-de-comparaisons" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2.2 Opérations de comparaisons
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#33-les-chaines-de-caracteres" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3 Les chaînes de caractères
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.3 Les chaînes de caractères">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#331-slicing" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3.1 Slicing
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#332-concatenation-et-repetition" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3.2 Concaténation et Répétition
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#333-comparaison" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3.3 Comparaison
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#334-affichage-et-formatage" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3.4 Affichage et Formatage
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#335-la-notation-scientifique-et-les-chiffres-significatifs" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3.5 La notation scientifique et les chiffres significatifs
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#34-les-listes" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.4 Les listes
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.4 Les listes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#341-slicing-et-modification" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.4.1 Slicing et Modification
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#342-longueur" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.4.2 Longueur
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#343-operations-dappartenance" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.4.3 Opérations d'appartenance
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#35-comment-connaitre-le-type-dune-donnee-dans-une-variable" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.5 Comment connaître le type d'une donnée dans une variable ?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#26-comment-convertir-un-type-de-donnees-en-un-autre-type" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.6 Comment convertir un type de données en un autre type ?
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="3-types-de-donnees">3. Types de données</h1>
+<p>Lors de la modélisation de phénomènes physiques ou chimiques, nous allons être amené à utiliser différents types de 
+données et les stocker dans des variables.
+Python en propose une multitude (voir <a href="https://docs.python.org/fr/3.13/library/stdtypes.html">doc</a>) et permet même de 
+construire nos propres types de données. Voici les plus utiles dans notre cadre : </p>
+<ul>
+<li>les nombres entiers (int) </li>
+<li>les nombres flottants (float) </li>
+<li>les booléens (bool) </li>
+<li>les chaînes de caractères (str) </li>
+<li>les listes (list) </li>
+</ul>
+<h2 id="31-les-nombres-entiers-et-flottants">3.1 Les nombres entiers et flottants</h2>
+<p>Un nombre <strong>entier (int)</strong> est un entier relatif et un nombre <strong>flottant (float)</strong> est un nombre à virgule.
+Par exemple : </p>
+<div class="language-py highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span>
+<span class="normal"><a href="#__codelineno-0-2">2</a></span>
+<span class="normal"><a href="#__codelineno-0-3">3</a></span>
+<span class="normal"><a href="#__codelineno-0-4">4</a></span>
+<span class="normal"><a href="#__codelineno-0-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="n">periode</span> <span class="o">=</span> <span class="mi">30</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="n">DistanceFocaleEnCm</span> <span class="o">=</span> <span class="o">-</span><span class="mi">20</span> 
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="n">hauteur</span> <span class="o">=</span> <span class="mf">74.58</span>  
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="n">massejupiter</span> <span class="o">=</span> <span class="mf">1.898e27</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="n">charge_electron</span> <span class="o">=</span> <span class="o">-</span><span class="mf">1.6e-19</span>
+</span></code></pre></div></td></tr></table></div>
+<h3 id="311-operations-mathematiques">3.1.1 Opérations mathématiques</h3>
+<p>Ils sont utilisés pour réaliser des opérations mathématiques.</p>
+<details class="example">
+<summary>Test 3.1.1 : Addition <code class="language-python highlight"><span class="o">+</span></code></summary>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Enoncé</label><label for="__tabbed_1_2">Solution</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Données : M(O) = 16,0 g/mol ; M(C) = 12,0 g/mol<br />
+1. Créer un programme permettant de calculer la masse molaire du monoxyde de carbone</p>
+</div>
+<div class="tabbed-block">
+<div class="language-py highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span>
+<span class="normal"><a href="#__codelineno-1-2">2</a></span>
+<span class="normal"><a href="#__codelineno-1-3">3</a></span>
+<span class="normal"><a href="#__codelineno-1-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="n">M_O</span> <span class="o">=</span> <span class="mf">16.0</span>  <span class="c1">#en g/mol</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="n">M_C</span> <span class="o">=</span> <span class="mf">12.0</span> <span class="c1">#en g/mol</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="n">M_CO</span> <span class="o">=</span> <span class="n">M_C</span> <span class="o">+</span> <span class="n">M_O</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="nb">print</span><span class="p">(</span><span class="n">M_CO</span><span class="p">)</span>
+</span></code></pre></div></td></tr></table></div>
+</div>
+</div>
+</div>
+</details>
+<details class="example">
+<summary>Test 3.1.2 : Soustraction <code class="language-python highlight"><span class="o">-</span></code></summary>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Enoncé</label><label for="__tabbed_2_2">Solution</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>La balle atteint la position M1 à t1 = 10s et la position M2 à t2 = 25s.  <br />
+1. Créer un programme permettant de calculer la durée pour aller de M1 à M2 </p>
+</div>
+<div class="tabbed-block">
+<div class="language-py highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span>
+<span class="normal"><a href="#__codelineno-2-2">2</a></span>
+<span class="normal"><a href="#__codelineno-2-3">3</a></span>
+<span class="normal"><a href="#__codelineno-2-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="n">t1</span> <span class="o">=</span> <span class="mi">10</span>  <span class="c1">#en s</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="n">t2</span> <span class="o">=</span> <span class="mi">25</span> <span class="c1">#en s</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="n">duree</span> <span class="o">=</span> <span class="n">t2</span><span class="o">-</span><span class="n">t1</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="nb">print</span><span class="p">(</span><span class="n">duree</span><span class="p">)</span>
+</span></code></pre></div></td></tr></table></div>
+</div>
+</div>
+</div>
+</details>
+<details class="example">
+<summary>Test 3.1.3 : Multiplication <code class="language-python highlight"><span class="o">*</span></code></summary>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Enoncé</label><label for="__tabbed_3_2">Solution</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Un aigle a une masse de 5 kg. Donnée : g<sub>Terre</sub> = 9.81 N/kg.    <br />
+1. Créer un programme permettant de calculer le poids de l'aigle. </p>
+</div>
+<div class="tabbed-block">
+<div class="language-py highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span>
+<span class="normal"><a href="#__codelineno-3-2">2</a></span>
+<span class="normal"><a href="#__codelineno-3-3">3</a></span>
+<span class="normal"><a href="#__codelineno-3-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="n">m</span> <span class="o">=</span> <span class="mi">5</span>  <span class="c1">#en kg</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="n">g</span> <span class="o">=</span> <span class="mf">9.81</span> <span class="c1">#en N/kg</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="n">P</span> <span class="o">=</span> <span class="n">m</span><span class="o">*</span><span class="n">g</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4"></a><span class="nb">print</span><span class="p">(</span><span class="n">P</span><span class="p">)</span>
+</span></code></pre></div></td></tr></table></div>
+</div>
+</div>
+</div>
+</details>
+<details class="example">
+<summary>Test 3.1.4 : Division <code class="language-python highlight"><span class="o">/</span></code></summary>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">Enoncé</label><label for="__tabbed_4_2">Solution</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Un son se propage sur 35.5m à une vitesse de 340 m/s.<br />
+1. Créer un programme permettant de calculer la durée de propagation du son. </p>
+</div>
+<div class="tabbed-block">
+<div class="language-py highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1">1</a></span>
+<span class="normal"><a href="#__codelineno-4-2">2</a></span>
+<span class="normal"><a href="#__codelineno-4-3">3</a></span>
+<span class="normal"><a href="#__codelineno-4-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="n">d</span> <span class="o">=</span> <span class="mf">35.5</span>  <span class="c1">#en m</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="n">v</span> <span class="o">=</span> <span class="mi">340</span> <span class="c1">#en m/s</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="n">t</span> <span class="o">=</span> <span class="n">d</span><span class="o">/</span><span class="n">v</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4"></a><span class="nb">print</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+</span></code></pre></div></td></tr></table></div>
+</div>
+</div>
+</div>
+</details>
+<details class="example">
+<summary>Test 3.1.5 : Division euclidienne <code class="language-python highlight"><span class="o">//</span></code> et modulo <code class="language-python highlight"><span class="o">%</span></code></summary>
+<div class="tabbed-set tabbed-alternate" data-tabs="5:2"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">Enoncé</label><label for="__tabbed_5_2">Solution</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Dans les systèmes de télécommunication par fibre optique, répartir des photons équitablement permet d'assurer 
+une transmission symétrique ou équilibrée du signal. Un laser émet 137 photons qu'on souhaite répartir 
+équitablement dans 4 fibres optiques.<br />
+1. Créer un programme permettant de calculer cette répartition et d'en déduire le nombre de photons restant </p>
+</div>
+<div class="tabbed-block">
+<div class="language-py highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1">1</a></span>
+<span class="normal"><a href="#__codelineno-5-2">2</a></span>
+<span class="normal"><a href="#__codelineno-5-3">3</a></span>
+<span class="normal"><a href="#__codelineno-5-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="n">nb_photon_par_fibre</span> <span class="o">=</span> <span class="mi">137</span><span class="o">//</span><span class="mi">4</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="n">nb_photon_restant</span> <span class="o">=</span> <span class="mi">137</span><span class="o">%</span><span class="mi">4</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="nb">print</span><span class="p">(</span><span class="n">nb_photon_par_fibre</span><span class="p">)</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4"></a><span class="nb">print</span><span class="p">(</span><span class="n">nb_photon_restant</span><span class="p">)</span>
+</span></code></pre></div></td></tr></table></div>
+</div>
+</div>
+</div>
+</details>
+<details class="example">
+<summary>Test 3.1.6 : Puissance <code class="language-python highlight"><span class="o">**</span></code></summary>
+<div class="tabbed-set tabbed-alternate" data-tabs="6:2"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><input id="__tabbed_6_2" name="__tabbed_6" type="radio" /><div class="tabbed-labels"><label for="__tabbed_6_1">Enoncé</label><label for="__tabbed_6_2">Solution</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Un courant d'intensité I = 10 A traverse un rheostat de résistance R = 300 <span class="arithmatex">\(\Omega\)</span>.<br />
+1. Créer un programme permettant de calculer la puissance dissipée par effet joule. </p>
+</div>
+<div class="tabbed-block">
+<div class="language-py highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1">1</a></span>
+<span class="normal"><a href="#__codelineno-6-2">2</a></span>
+<span class="normal"><a href="#__codelineno-6-3">3</a></span>
+<span class="normal"><a href="#__codelineno-6-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="n">I</span> <span class="o">=</span> <span class="mi">10</span>  <span class="c1">#en A</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="n">R</span> <span class="o">=</span> <span class="mi">300</span> <span class="c1">#en ohms</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="n">P</span> <span class="o">=</span> <span class="n">R</span><span class="o">*</span><span class="n">I</span><span class="o">**</span><span class="mi">2</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4"></a><span class="nb">print</span><span class="p">(</span><span class="n">P</span><span class="p">)</span>
+</span></code></pre></div></td></tr></table></div>
+</div>
+</div>
+</div>
+</details>
+<h2 id="32-les-booleens">3.2 Les booléens</h2>
+<p>Un <strong>booléen (bool)</strong> a pour valeur <code class="language-python highlight"><span class="kc">True</span></code> ou <code class="language-python highlight"><span class="kc">False</span></code>. Par exemple :    </p>
+<div class="language-py highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1">1</a></span>
+<span class="normal"><a href="#__codelineno-7-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="n">mvt_uniforme</span> <span class="o">=</span> <span class="kc">True</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2"></a><span class="n">ReactionTotale</span> <span class="o">=</span> <span class="kc">False</span>
+</span></code></pre></div></td></tr></table></div>
+<h3 id="321-operations-de-logiques">3.2.1 Opérations de logiques</h3>
+<p>Il est utilisé pour réaliser des opérations de logiques.</p>
+<details class="example">
+<summary>Test 3.2.1 : Logique</summary>
+<div class="tabbed-set tabbed-alternate" data-tabs="7:1"><input checked="checked" id="__tabbed_7_1" name="__tabbed_7" type="radio" /><div class="tabbed-labels"><label for="__tabbed_7_1">Enoncé</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Tester le code suivant :
+<div class="language-py highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1">1</a></span>
+<span class="normal"><a href="#__codelineno-8-2">2</a></span>
+<span class="normal"><a href="#__codelineno-8-3">3</a></span>
+<span class="normal"><a href="#__codelineno-8-4">4</a></span>
+<span class="normal"><a href="#__codelineno-8-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="nb">print</span><span class="p">(</span><span class="kc">True</span> <span class="ow">and</span> <span class="kc">False</span><span class="p">)</span> <span class="c1"># opérateur Et</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2"></a><span class="nb">print</span><span class="p">(</span><span class="kc">True</span> <span class="o">&amp;</span> <span class="kc">False</span><span class="p">)</span> <span class="c1"># opérateur Et</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3"></a><span class="nb">print</span><span class="p">(</span><span class="kc">True</span> <span class="ow">or</span> <span class="kc">False</span><span class="p">)</span> <span class="c1"># opérateur Ou</span>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4"></a><span class="nb">print</span><span class="p">(</span><span class="kc">True</span> <span class="o">|</span> <span class="kc">False</span><span class="p">)</span> <span class="c1"># opérateur Ou</span>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5"></a><span class="nb">print</span><span class="p">(</span><span class="ow">not</span><span class="p">(</span><span class="kc">True</span><span class="p">))</span> <span class="c1"># Négation</span>
+</span></code></pre></div></td></tr></table></div></p>
+</div>
+</div>
+</div>
+</details>
+<h3 id="322-operations-de-comparaisons">3.2.2 Opérations de comparaisons</h3>
+<p>Il est aussi le résultat des opérations de comparaisons</p>
+<details class="example">
+<summary>Test 3.2.2 : Comparaison <code class="language-python highlight"><span class="o">&lt;</span></code>, <code class="language-python highlight"><span class="o">&gt;</span></code> , <code class="language-python highlight"><span class="o">&lt;=</span></code> , <code class="language-python highlight"><span class="o">&gt;=</span></code> , <code class="language-python highlight"><span class="o">==</span></code> , <code class="language-python highlight"><span class="o">!=</span></code></summary>
+<div class="tabbed-set tabbed-alternate" data-tabs="8:2"><input checked="checked" id="__tabbed_8_1" name="__tabbed_8" type="radio" /><input id="__tabbed_8_2" name="__tabbed_8" type="radio" /><div class="tabbed-labels"><label for="__tabbed_8_1">Enoncé</label><label for="__tabbed_8_2">Solution</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Données : d<sub>eau</sub> = 1.00 ; d<sub>cyclohexane</sub> = 0.779<br />
+1. Tester les différents opérateurs de comparaison  entre les deux densités.</p>
+</div>
+<div class="tabbed-block">
+<div class="language-py highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-1">1</a></span>
+<span class="normal"><a href="#__codelineno-9-2">2</a></span>
+<span class="normal"><a href="#__codelineno-9-3">3</a></span>
+<span class="normal"><a href="#__codelineno-9-4">4</a></span>
+<span class="normal"><a href="#__codelineno-9-5">5</a></span>
+<span class="normal"><a href="#__codelineno-9-6">6</a></span>
+<span class="normal"><a href="#__codelineno-9-7">7</a></span>
+<span class="normal"><a href="#__codelineno-9-8">8</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="n">d_eau</span> <span class="o">=</span> <span class="mf">1.00</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2"></a><span class="n">d_cyclohexane</span> <span class="o">=</span> <span class="mf">0.779</span> 
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3"></a><span class="nb">print</span><span class="p">(</span><span class="n">d_eau</span><span class="o">&lt;</span><span class="n">d_cyclohexane</span><span class="p">)</span>
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4"></a><span class="nb">print</span><span class="p">(</span><span class="n">d_eau</span><span class="o">&gt;</span><span class="n">d_cyclohexane</span><span class="p">)</span>
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5"></a><span class="nb">print</span><span class="p">(</span><span class="n">d_eau</span><span class="o">&lt;=</span><span class="n">d_cyclohexane</span><span class="p">)</span>
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6"></a><span class="nb">print</span><span class="p">(</span><span class="n">d_eau</span><span class="o">&gt;=</span><span class="n">d_cyclohexane</span><span class="p">)</span>
+</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7"></a><span class="nb">print</span><span class="p">(</span><span class="n">d_eau</span><span class="o">==</span><span class="n">d_cyclohexane</span><span class="p">)</span>
+</span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8"></a><span class="nb">print</span><span class="p">(</span><span class="n">d_eau</span><span class="o">!=</span><span class="n">d_cyclohexane</span><span class="p">)</span>
+</span></code></pre></div></td></tr></table></div>
+</div>
+</div>
+</div>
+</details>
+<h2 id="33-les-chaines-de-caracteres">3.3 Les chaînes de caractères</h2>
+<p>Les <strong>chaînes de caractères (str)</strong> sont des textes qui sont délimités soit par les symboles <code class="language-python highlight"><span class="s1">&#39; &#39;</span></code> ou <code class="language-python highlight"><span class="s2">&quot; &quot;</span></code> ou
+<code class="language-python highlight"><span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span></code>. Par exemple :    </p>
+<div class="language-py highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-10-1">1</a></span>
+<span class="normal"><a href="#__codelineno-10-2">2</a></span>
+<span class="normal"><a href="#__codelineno-10-3">3</a></span>
+<span class="normal"><a href="#__codelineno-10-4">4</a></span>
+<span class="normal"><a href="#__codelineno-10-5">5</a></span>
+<span class="normal"><a href="#__codelineno-10-6">6</a></span>
+<span class="normal"><a href="#__codelineno-10-7">7</a></span>
+<span class="normal"><a href="#__codelineno-10-8">8</a></span>
+<span class="normal"><a href="#__codelineno-10-9">9</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="n">Legende_Abscisse</span> <span class="o">=</span> <span class="s1">&#39;Masse du soluté (en g)&#39;</span> 
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2"></a>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3"></a><span class="n">solvant</span> <span class="o">=</span> <span class="s2">&quot;eau&quot;</span>
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4"></a>
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5"></a><span class="c1">#les triples guillemets permettent d&#39;écrire un texte sur plusieurs lignes.</span>
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6"></a><span class="n">phrase</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;L&#39;atome de Carbone possède </span>
+</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7"></a><span class="s2">4 électrons de valence. </span>
+</span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8"></a><span class="s2">Donc il se trouve à </span>
+</span><span id="__span-10-9"><a id="__codelineno-10-9" name="__codelineno-10-9"></a><span class="s2">la colonne 14.&quot;&quot;&quot;</span> 
+</span></code></pre></div></td></tr></table></div>
+<h3 id="331-slicing">3.3.1 Slicing</h3>
+<p>Il est possible d'accéder à un caractère ou plusieurs caractères d'une chaîne de caractères en donnant entre crochets 
+<code class="language-python highlight"><span class="p">[</span> <span class="p">]</span></code> la position ou l'intervalle. Attention l'indexation commence à 0 !</p>
+<details class="example">
+<summary>Test 3.3.1 : Slicing</summary>
+<div class="tabbed-set tabbed-alternate" data-tabs="9:2"><input checked="checked" id="__tabbed_9_1" name="__tabbed_9" type="radio" /><input id="__tabbed_9_2" name="__tabbed_9" type="radio" /><div class="tabbed-labels"><label for="__tabbed_9_1">Enoncé</label><label for="__tabbed_9_2">Solution</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<ol>
+<li>Tester le code suivant : 
+<div class="language-py highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-11-1">1</a></span>
+<span class="normal"><a href="#__codelineno-11-2">2</a></span>
+<span class="normal"><a href="#__codelineno-11-3">3</a></span>
+<span class="normal"><a href="#__codelineno-11-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="n">texte</span> <span class="o">=</span> <span class="s2">&quot;Les cellules photovoltaïques fonctionnent grâce à l&#39;effet photoélectrique&quot;</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2"></a><span class="nb">print</span><span class="p">(</span><span class="n">texte</span><span class="p">[</span><span class="mi">4</span><span class="p">])</span> <span class="c1">#Affiche la lettre &quot;c&quot; </span>
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3"></a><span class="nb">print</span><span class="p">(</span><span class="n">texte</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">28</span><span class="p">])</span> <span class="c1">#Affiche &quot;Les cellules photovoltaïques&quot;</span>
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4"></a><span class="nb">print</span><span class="p">(</span><span class="n">texte</span><span class="p">[</span><span class="o">-</span><span class="mi">5</span><span class="p">:</span><span class="o">-</span><span class="mi">3</span><span class="p">])</span>  <span class="c1">#Affiche les caractères en commençant par la fin soit &quot;ri&quot;</span>
+</span></code></pre></div></td></tr></table></div></li>
+<li>Ecrire le code permettant d'afficher "effet photoélectrique" </li>
+</ol>
+</div>
+<div class="tabbed-block">
+<div class="language-py highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-12-1">1</a></span>
+<span class="normal"><a href="#__codelineno-12-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="nb">print</span><span class="p">(</span><span class="n">texte</span><span class="p">[</span><span class="o">-</span><span class="mi">21</span><span class="p">:])</span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2"></a><span class="nb">print</span><span class="p">(</span><span class="n">texte</span><span class="p">[</span><span class="mi">52</span><span class="p">:])</span>
+</span></code></pre></div></td></tr></table></div>
+</div>
+</div>
+</div>
+</details>
+<h3 id="332-concatenation-et-repetition">3.3.2 Concaténation et Répétition</h3>
+<p>Il est utile de savoir concaténer plusieurs chaînes de caractères avec l'opérateur <code class="language-python highlight"><span class="o">+</span></code> ou de répéter 
+un caractère plusieurs fois avec l'opérateur <code class="language-python highlight"><span class="o">*</span></code></p>
+<details class="example">
+<summary>Test 3.3.2 : Concaténation et Répétition</summary>
+<div class="tabbed-set tabbed-alternate" data-tabs="10:1"><input checked="checked" id="__tabbed_10_1" name="__tabbed_10" type="radio" /><div class="tabbed-labels"><label for="__tabbed_10_1">Enoncé</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<ol>
+<li>Tester le code suivant : 
+<div class="language-py highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-13-1">1</a></span>
+<span class="normal"><a href="#__codelineno-13-2">2</a></span>
+<span class="normal"><a href="#__codelineno-13-3">3</a></span>
+<span class="normal"><a href="#__codelineno-13-4">4</a></span>
+<span class="normal"><a href="#__codelineno-13-5">5</a></span>
+<span class="normal"><a href="#__codelineno-13-6">6</a></span>
+<span class="normal"><a href="#__codelineno-13-7">7</a></span>
+<span class="normal"><a href="#__codelineno-13-8">8</a></span>
+<span class="normal"><a href="#__codelineno-13-9">9</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1"></a><span class="n">texte1</span> <span class="o">=</span> <span class="s2">&quot;le grandissement &quot;</span>
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2"></a><span class="n">texte2</span> <span class="o">=</span> <span class="s2">&quot;vaut &quot;</span>
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3"></a><span class="n">texte3</span> <span class="o">=</span> <span class="s2">&quot;-4&quot;</span>
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4"></a><span class="nb">print</span><span class="p">(</span><span class="n">texte1</span> <span class="o">+</span> <span class="n">texte2</span> <span class="o">+</span> <span class="n">texte3</span><span class="p">)</span> 
+</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5"></a>
+</span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-&quot;</span><span class="o">*</span><span class="mi">1</span><span class="p">)</span> 
+</span><span id="__span-13-7"><a id="__codelineno-13-7" name="__codelineno-13-7"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-&quot;</span><span class="o">*</span><span class="mi">2</span><span class="p">)</span> 
+</span><span id="__span-13-8"><a id="__codelineno-13-8" name="__codelineno-13-8"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-&quot;</span><span class="o">*</span><span class="mi">3</span><span class="p">)</span> 
+</span><span id="__span-13-9"><a id="__codelineno-13-9" name="__codelineno-13-9"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-&quot;</span><span class="o">*</span><span class="mi">4</span><span class="p">)</span>
+</span></code></pre></div></td></tr></table></div></li>
+</ol>
+</div>
+</div>
+</div>
+</details>
+<h3 id="333-comparaison">3.3.3 Comparaison</h3>
+<p>On peut aussi comparer 2 chaînes de caractères. </p>
+<details class="example">
+<summary>Test 3.3.3 : Comparaison</summary>
+<div class="tabbed-set tabbed-alternate" data-tabs="11:1"><input checked="checked" id="__tabbed_11_1" name="__tabbed_11" type="radio" /><div class="tabbed-labels"><label for="__tabbed_11_1">Enoncé</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<ol>
+<li>Tester le code suivant : 
+<div class="language-py highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-14-1">1</a></span>
+<span class="normal"><a href="#__codelineno-14-2">2</a></span>
+<span class="normal"><a href="#__codelineno-14-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1"></a><span class="n">solvant</span> <span class="o">=</span> <span class="s2">&quot;acetone&quot;</span>
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2"></a><span class="nb">print</span><span class="p">(</span><span class="n">solvant</span><span class="o">==</span><span class="s2">&quot;acetone&quot;</span><span class="p">)</span>
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3"></a><span class="nb">print</span><span class="p">(</span><span class="n">solvant</span><span class="o">!=</span><span class="s2">&quot;eau&quot;</span><span class="p">)</span>
+</span></code></pre></div></td></tr></table></div></li>
+</ol>
+</div>
+</div>
+</div>
+</details>
+<h3 id="334-affichage-et-formatage">3.3.4 Affichage et Formatage</h3>
+<p>La manipulation des chaînes de caractères porte surtout son intérêt en physique-chimie lorsqu'on veut afficher 
+un texte avec plusieurs variables afin de communiquer un résultat. </p>
+<p>On peut utiliser la fonction <code class="language-python highlight"><span class="nb">print</span><span class="p">()</span></code> en séparant les chaînes de caractères et les variables par des virgules <code>,</code> </p>
+<details class="example">
+<summary>Test 3.3.4.1 : Affichage</summary>
+<div class="tabbed-set tabbed-alternate" data-tabs="12:2"><input checked="checked" id="__tabbed_12_1" name="__tabbed_12" type="radio" /><input id="__tabbed_12_2" name="__tabbed_12" type="radio" /><div class="tabbed-labels"><label for="__tabbed_12_1">Enoncé</label><label for="__tabbed_12_2">Solution</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<ol>
+<li>Créer un programme permettant d'afficher la phrase suivante à partir de deux variables <code class="language-python highlight"><span class="n">element</span></code> et 
+<code class="language-python highlight"><span class="n">nb_electrons_valence</span></code> avec les données Fluor et 7 :<br />
+<code class="language-python highlight"><span class="n">L</span><span class="s1">&#39;atome de Fluor possède 7 électrons de valence. Donc il se trouve à la colonne 1 7.</span></code> <br />
+Et si on modifie ces variables avec Carbone et 4. Le programme doit alors afficher : <br />
+<code class="language-python highlight"><span class="n">L</span><span class="s1">&#39;atome de Carbone possède 4 électrons de valence. Donc il se trouve à la colonne 1 4.</span></code></li>
+</ol>
+</div>
+<div class="tabbed-block">
+<div class="language-py highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-15-1">1</a></span>
+<span class="normal"><a href="#__codelineno-15-2">2</a></span>
+<span class="normal"><a href="#__codelineno-15-3">3</a></span>
+<span class="normal"><a href="#__codelineno-15-4">4</a></span>
+<span class="normal"><a href="#__codelineno-15-5">5</a></span>
+<span class="normal"><a href="#__codelineno-15-6">6</a></span>
+<span class="normal"><a href="#__codelineno-15-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1"></a><span class="n">element</span> <span class="o">=</span> <span class="s2">&quot;Fluor&quot;</span>
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2"></a><span class="n">nb_electrons_valence</span> <span class="o">=</span> <span class="mi">7</span> 
+</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;L&#39;atome de&quot;</span><span class="p">,</span><span class="n">element</span><span class="p">,</span><span class="s2">&quot;possède&quot;</span><span class="p">,</span><span class="n">nb_electrons_valence</span><span class="p">,</span> <span class="s2">&quot;. Donc il se trouve à la colonne 1&quot;</span><span class="p">,</span><span class="n">nb_electrons_valence</span><span class="p">,</span><span class="s2">&quot;.&quot;</span><span class="p">)</span>
+</span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4"></a>
+</span><span id="__span-15-5"><a id="__codelineno-15-5" name="__codelineno-15-5"></a><span class="n">element</span> <span class="o">=</span> <span class="s2">&quot;Carbone&quot;</span>
+</span><span id="__span-15-6"><a id="__codelineno-15-6" name="__codelineno-15-6"></a><span class="n">nb_electrons_valence</span> <span class="o">=</span> <span class="mi">4</span> 
+</span><span id="__span-15-7"><a id="__codelineno-15-7" name="__codelineno-15-7"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;L&#39;atome de&quot;</span><span class="p">,</span><span class="n">element</span><span class="p">,</span><span class="s2">&quot;possède&quot;</span><span class="p">,</span><span class="n">nb_electrons_valence</span><span class="p">,</span> <span class="s2">&quot;. Donc il se trouve à la colonne 1&quot;</span><span class="p">,</span><span class="n">nb_electrons_valence</span><span class="p">,</span><span class="s2">&quot;.&quot;</span><span class="p">)</span>
+</span></code></pre></div></td></tr></table></div>
+</div>
+</div>
+</div>
+</details>
+<p>Une autre façon plus élégante est d'utiliser le formatage de chaînes de caractères.  <br />
+Pour plus de détails, voir <a href="https://docs.python.org/fr/3.11/tutorial/inputoutput.html#">ici</a> </p>
+<details class="example">
+<summary>Test 3.3.4.2 : f-string</summary>
+<div class="tabbed-set tabbed-alternate" data-tabs="13:2"><input checked="checked" id="__tabbed_13_1" name="__tabbed_13" type="radio" /><input id="__tabbed_13_2" name="__tabbed_13" type="radio" /><div class="tabbed-labels"><label for="__tabbed_13_1">Enoncé</label><label for="__tabbed_13_2">Solution</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<ol>
+<li>Tester le code suivant : 
+<div class="language-py highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-16-1">1</a></span>
+<span class="normal"><a href="#__codelineno-16-2">2</a></span>
+<span class="normal"><a href="#__codelineno-16-3">3</a></span>
+<span class="normal"><a href="#__codelineno-16-4">4</a></span>
+<span class="normal"><a href="#__codelineno-16-5">5</a></span>
+<span class="normal"><a href="#__codelineno-16-6">6</a></span>
+<span class="normal"><a href="#__codelineno-16-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1"></a><span class="n">element</span> <span class="o">=</span> <span class="s2">&quot;Carbone C&quot;</span>
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2"></a><span class="n">couche_externe</span> <span class="o">=</span> <span class="mi">2</span>
+</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3"></a>
+</span><span id="__span-16-4"><a id="__codelineno-16-4" name="__codelineno-16-4"></a><span class="n">raisonnement</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;Le numéro de la couche externe de l&#39;atome de </span><span class="si">{0}</span><span class="s2"> est </span><span class="si">{1}</span><span class="s2">. </span>
+</span><span id="__span-16-5"><a id="__codelineno-16-5" name="__codelineno-16-5"></a><span class="s2">Donc il se situe à la </span><span class="si">{1}</span><span class="s2">ième période.&quot;&quot;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">element</span><span class="p">,</span><span class="n">couche_externe</span><span class="p">)</span>
+</span><span id="__span-16-6"><a id="__codelineno-16-6" name="__codelineno-16-6"></a>
+</span><span id="__span-16-7"><a id="__codelineno-16-7" name="__codelineno-16-7"></a><span class="nb">print</span><span class="p">(</span><span class="n">raisonnement</span><span class="p">)</span>
+</span></code></pre></div></td></tr></table></div></li>
+<li>Reprendre le programme du Test 3.3.4.1 en utilisant le formatage de chaînes de caractères</li>
+</ol>
+</div>
+<div class="tabbed-block">
+<div class="language-py highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-17-1">1</a></span>
+<span class="normal"><a href="#__codelineno-17-2">2</a></span>
+<span class="normal"><a href="#__codelineno-17-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1"></a><span class="n">element</span> <span class="o">=</span> <span class="s2">&quot;Fluor&quot;</span> <span class="c1">#&quot;Carbone&quot;</span>
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2"></a><span class="n">nb_electrons_valence</span> <span class="o">=</span> <span class="mi">7</span> <span class="c1">#4</span>
+</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;L&#39;atome de </span><span class="si">{0}</span><span class="s2"> possède </span><span class="si">{1}</span><span class="s2">. Donc il se trouve à la colonne 1</span><span class="si">{1}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">element</span><span class="p">,</span><span class="n">nb_electrons_valence</span><span class="p">)</span>
+</span></code></pre></div></td></tr></table></div>
+</div>
+</div>
+</div>
+</details>
+<h3 id="335-la-notation-scientifique-et-les-chiffres-significatifs">3.3.5 La notation scientifique et les chiffres significatifs</h3>
+<p>Avec le formatage de chaînes de caractères, on peut aller encore plus loin et afficher une valeur numérique en notation 
+scientifique ou en respectant les chiffres significatifs. </p>
+<p>Pour afficher une valeur numérique en utilisant la notation scientifique, il suffit d'utiliser le formatage <code>{:.pe}</code> 
+où p désigne le nombre de chiffres aprés la virgule.</p>
+<details class="example">
+<summary>Test 3.3.5.1 : Notation scientifique 1</summary>
+<div class="tabbed-set tabbed-alternate" data-tabs="14:1"><input checked="checked" id="__tabbed_14_1" name="__tabbed_14" type="radio" /><div class="tabbed-labels"><label for="__tabbed_14_1">Enoncé</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<ol>
+<li>Tester le code suivant : 
+<div class="language-py highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-18-1">1</a></span>
+<span class="normal"><a href="#__codelineno-18-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{:.2e}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mf">0.0003256813</span><span class="p">))</span> <span class="c1">#2 chiffres après la virgule et de plus la valeur est arrondie</span>
+</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{:.5e}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mf">0.0003256813</span><span class="p">))</span> <span class="c1">#5 chiffres après la virgule et de plus la valeur est arrondie</span>
+</span></code></pre></div></td></tr></table></div></li>
+</ol>
+</div>
+</div>
+</div>
+</details>
+<details class="example">
+<summary>Test 3.3.5.2 : Notation scientifique 2</summary>
+<div class="tabbed-set tabbed-alternate" data-tabs="15:2"><input checked="checked" id="__tabbed_15_1" name="__tabbed_15" type="radio" /><input id="__tabbed_15_2" name="__tabbed_15" type="radio" /><div class="tabbed-labels"><label for="__tabbed_15_1">Enoncé</label><label for="__tabbed_15_2">Solution</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Le calcul d'une période T donne le résultat suivant : 0.00286971 s.<br />
+1. Afficher une phrase donnant le résultat en notation scientifique arrondie au millième.</p>
+</div>
+<div class="tabbed-block">
+<div class="language-py highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-19-1">1</a></span>
+<span class="normal"><a href="#__codelineno-19-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1"></a><span class="n">periode</span> <span class="o">=</span> <span class="mf">0.00286971</span> <span class="c1"># en s</span>
+</span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;La période vaut </span><span class="si">{:.3e}</span><span class="s2"> s.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">periode</span><span class="p">))</span>
+</span></code></pre></div></td></tr></table></div>
+</div>
+</div>
+</div>
+</details>
+<p>Pour afficher une valeur numérique avec le bon nombre de chiffre significatifs, il suffit d'utiliser le formatage <code>{:.pg}</code> 
+où p désigne le nombre de chiffres significatifs.</p>
+<details class="example">
+<summary>Test 3.3.5.3 : Chiffres significatifs 1</summary>
+<div class="tabbed-set tabbed-alternate" data-tabs="16:1"><input checked="checked" id="__tabbed_16_1" name="__tabbed_16" type="radio" /><div class="tabbed-labels"><label for="__tabbed_16_1">Enoncé</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<ol>
+<li>Tester le code suivant : 
+<div class="language-py highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-20-1">1</a></span>
+<span class="normal"><a href="#__codelineno-20-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{:.2g}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mf">0.0003256813</span><span class="p">))</span> <span class="c1">#2 chiffres significatifs</span>
+</span><span id="__span-20-2"><a id="__codelineno-20-2" name="__codelineno-20-2"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{:.5g}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mf">0.0003256813</span><span class="p">))</span> <span class="c1">#5 chiffres significatifs</span>
+</span></code></pre></div></td></tr></table></div></li>
+</ol>
+</div>
+</div>
+</div>
+</details>
+<details class="example">
+<summary>Test 3.3.5.4 : Chiffres significatifs 2</summary>
+<div class="tabbed-set tabbed-alternate" data-tabs="17:2"><input checked="checked" id="__tabbed_17_1" name="__tabbed_17" type="radio" /><input id="__tabbed_17_2" name="__tabbed_17" type="radio" /><div class="tabbed-labels"><label for="__tabbed_17_1">Enoncé</label><label for="__tabbed_17_2">Solution</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Le calcul d'une période T donne le résultat suivant : 0.00286971 s.<br />
+1. Afficher une phrase donnant le résultat avec 3 chiffres significatifs.</p>
+</div>
+<div class="tabbed-block">
+<div class="language-py highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-21-1">1</a></span>
+<span class="normal"><a href="#__codelineno-21-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1"></a><span class="n">periode</span> <span class="o">=</span> <span class="mf">0.00286971</span> <span class="c1"># en s</span>
+</span><span id="__span-21-2"><a id="__codelineno-21-2" name="__codelineno-21-2"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;La période vaut </span><span class="si">{:.3g}</span><span class="s2"> s.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">periode</span><span class="p">))</span>
+</span></code></pre></div></td></tr></table></div>
+</div>
+</div>
+</div>
+</details>
+<h2 id="34-les-listes">3.4 Les listes</h2>
+<p>Les listes sont des conteneurs qui peuvent stocker un ensemble de données de différents types.   <br />
+Une liste est représentée par des crochets <code class="language-python highlight"><span class="p">[</span> <span class="p">]</span></code> avec les éléments séparées par des virgules <code class="language-python highlight"><span class="p">,</span></code>.
+Par exemple : </p>
+<div class="language-py highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-22-1">1</a></span>
+<span class="normal"><a href="#__codelineno-22-2">2</a></span>
+<span class="normal"><a href="#__codelineno-22-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1"></a><span class="n">solvant</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;eau&quot;</span><span class="p">,</span> <span class="s2">&quot;ethanol&quot;</span><span class="p">,</span> <span class="s2">&quot;acétone&quot;</span><span class="p">]</span>
+</span><span id="__span-22-2"><a id="__codelineno-22-2" name="__codelineno-22-2"></a><span class="n">position_xM</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">0.1</span><span class="p">,</span><span class="mf">0.2</span><span class="p">,</span><span class="mf">0.3</span><span class="p">,</span><span class="mf">0.4</span><span class="p">,</span><span class="mf">0.5</span><span class="p">]</span>
+</span><span id="__span-22-3"><a id="__codelineno-22-3" name="__codelineno-22-3"></a><span class="n">alcane</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;éthane&quot;</span><span class="p">,[</span><span class="s2">&quot;C&quot;</span><span class="p">,</span><span class="mi">2</span><span class="p">],[</span><span class="s2">&quot;H&quot;</span><span class="p">,</span><span class="mi">6</span><span class="p">]]</span>
+</span></code></pre></div></td></tr></table></div>
+<h3 id="341-slicing-et-modification">3.4.1 Slicing et Modification</h3>
+<p>Les éléments contenus dans les listes sont indexés comme dans une chaîne de caractères mais modifiables. Attention 
+l'indexation commence à 0 ! </p>
+<details class="example">
+<summary>Test 3.4.1 : Slicing et Modification</summary>
+<div class="tabbed-set tabbed-alternate" data-tabs="18:1"><input checked="checked" id="__tabbed_18_1" name="__tabbed_18" type="radio" /><div class="tabbed-labels"><label for="__tabbed_18_1">Enoncé</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<ol>
+<li>Tester le code suivant : 
+<div class="language-py highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-23-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-23-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-23-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-23-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-23-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-23-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-23-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-23-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-23-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-23-10">10</a></span>
+<span class="normal"><a href="#__codelineno-23-11">11</a></span>
+<span class="normal"><a href="#__codelineno-23-12">12</a></span>
+<span class="normal"><a href="#__codelineno-23-13">13</a></span>
+<span class="normal"><a href="#__codelineno-23-14">14</a></span>
+<span class="normal"><a href="#__codelineno-23-15">15</a></span>
+<span class="normal"><a href="#__codelineno-23-16">16</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1"></a><span class="n">alcalin</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;H&quot;</span><span class="p">,</span><span class="s2">&quot;Li&quot;</span><span class="p">,</span><span class="s2">&quot;Na&quot;</span><span class="p">,</span><span class="s2">&quot;K&quot;</span><span class="p">,</span><span class="s2">&quot;Rb&quot;</span><span class="p">,</span><span class="s2">&quot;Cs&quot;</span><span class="p">,</span><span class="s2">&quot;Fr&quot;</span><span class="p">]</span>
+</span><span id="__span-23-2"><a id="__codelineno-23-2" name="__codelineno-23-2"></a><span class="nb">print</span><span class="p">(</span><span class="n">alcalin</span><span class="p">)</span>
+</span><span id="__span-23-3"><a id="__codelineno-23-3" name="__codelineno-23-3"></a>
+</span><span id="__span-23-4"><a id="__codelineno-23-4" name="__codelineno-23-4"></a><span class="nb">print</span><span class="p">(</span><span class="n">alcalin</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span> <span class="c1">#Affiche Na</span>
+</span><span id="__span-23-5"><a id="__codelineno-23-5" name="__codelineno-23-5"></a><span class="n">alcalin</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;He&quot;</span> <span class="c1">#remplace Na par He</span>
+</span><span id="__span-23-6"><a id="__codelineno-23-6" name="__codelineno-23-6"></a><span class="nb">print</span><span class="p">(</span><span class="n">alcalin</span><span class="p">)</span>
+</span><span id="__span-23-7"><a id="__codelineno-23-7" name="__codelineno-23-7"></a>
+</span><span id="__span-23-8"><a id="__codelineno-23-8" name="__codelineno-23-8"></a><span class="nb">print</span><span class="p">(</span><span class="n">alcalin</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">6</span><span class="p">])</span> <span class="c1">#Affiche une partie de la liste</span>
+</span><span id="__span-23-9"><a id="__codelineno-23-9" name="__codelineno-23-9"></a><span class="n">alcalin</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">6</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1">#Supprime cette partie de la liste</span>
+</span><span id="__span-23-10"><a id="__codelineno-23-10" name="__codelineno-23-10"></a><span class="nb">print</span><span class="p">(</span><span class="n">alcalin</span><span class="p">)</span>
+</span><span id="__span-23-11"><a id="__codelineno-23-11" name="__codelineno-23-11"></a>
+</span><span id="__span-23-12"><a id="__codelineno-23-12" name="__codelineno-23-12"></a><span class="n">alcalin</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;Li&quot;</span><span class="p">)</span> <span class="c1">#Ajoute Li à la fin de la liste</span>
+</span><span id="__span-23-13"><a id="__codelineno-23-13" name="__codelineno-23-13"></a><span class="nb">print</span><span class="p">(</span><span class="n">alcalin</span><span class="p">)</span>
+</span><span id="__span-23-14"><a id="__codelineno-23-14" name="__codelineno-23-14"></a>
+</span><span id="__span-23-15"><a id="__codelineno-23-15" name="__codelineno-23-15"></a><span class="n">atome</span> <span class="o">=</span> <span class="n">alcalin</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="c1">#Récupère &#39;Fr&#39; puis le supprime de la liste</span>
+</span><span id="__span-23-16"><a id="__codelineno-23-16" name="__codelineno-23-16"></a><span class="nb">print</span><span class="p">(</span><span class="n">alcalin</span><span class="p">)</span>
+</span></code></pre></div></td></tr></table></div></li>
+</ol>
+</div>
+</div>
+</div>
+</details>
+<h3 id="342-longueur">3.4.2 Longueur</h3>
+<p>Pour connaître le nombre d'éléments dans la liste, il suffit d'utiliser la fonction <code class="language-python highlight"><span class="nb">len</span><span class="p">()</span></code>.</p>
+<details class="example">
+<summary>Test 3.4.2 : Longueur</summary>
+<div class="tabbed-set tabbed-alternate" data-tabs="19:1"><input checked="checked" id="__tabbed_19_1" name="__tabbed_19" type="radio" /><div class="tabbed-labels"><label for="__tabbed_19_1">Enoncé</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<ol>
+<li>Tester le code suivant : 
+<div class="language-py highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-24-1">1</a></span>
+<span class="normal"><a href="#__codelineno-24-2">2</a></span>
+<span class="normal"><a href="#__codelineno-24-3">3</a></span>
+<span class="normal"><a href="#__codelineno-24-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1"></a><span class="n">entier</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">]</span>
+</span><span id="__span-24-2"><a id="__codelineno-24-2" name="__codelineno-24-2"></a><span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">entier</span><span class="p">))</span>
+</span><span id="__span-24-3"><a id="__codelineno-24-3" name="__codelineno-24-3"></a><span class="n">molecules</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;CO2&quot;</span><span class="p">,</span><span class="s2">&quot;H20&quot;</span><span class="p">,</span><span class="s2">&quot;CH4&quot;</span><span class="p">]</span>
+</span><span id="__span-24-4"><a id="__codelineno-24-4" name="__codelineno-24-4"></a><span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">molecules</span><span class="p">))</span>
+</span></code></pre></div></td></tr></table></div></li>
+</ol>
+</div>
+</div>
+</div>
+</details>
+<h3 id="343-operations-dappartenance">3.4.3 Opérations d'appartenance</h3>
+<p>Pour savoir si un élement appartient ou non à la liste, on utilise l'opérateur <code class="language-python highlight"><span class="ow">in</span></code> ou <code class="language-python highlight"><span class="ow">not</span> <span class="ow">in</span></code></p>
+<details class="example">
+<summary>Test 3.4.3 : Appartenance</summary>
+<div class="tabbed-set tabbed-alternate" data-tabs="20:1"><input checked="checked" id="__tabbed_20_1" name="__tabbed_20" type="radio" /><div class="tabbed-labels"><label for="__tabbed_20_1">Enoncé</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Tester le code suivant :
+<div class="language-py highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-25-1">1</a></span>
+<span class="normal"><a href="#__codelineno-25-2">2</a></span>
+<span class="normal"><a href="#__codelineno-25-3">3</a></span>
+<span class="normal"><a href="#__codelineno-25-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1"></a><span class="c1">#L&#39;eau est un solvant organique ?</span>
+</span><span id="__span-25-2"><a id="__codelineno-25-2" name="__codelineno-25-2"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;eau&quot;</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;benzene&quot;</span><span class="p">,</span><span class="s2">&quot;methanol&quot;</span><span class="p">,</span><span class="s2">&quot;acetone&quot;</span><span class="p">,</span><span class="s2">&quot;pentane&quot;</span><span class="p">])</span>
+</span><span id="__span-25-3"><a id="__codelineno-25-3" name="__codelineno-25-3"></a><span class="c1">#L&#39;eau n&#39;est pas un solvant organique ?</span>
+</span><span id="__span-25-4"><a id="__codelineno-25-4" name="__codelineno-25-4"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;eau&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;benzene&quot;</span><span class="p">,</span><span class="s2">&quot;methanol&quot;</span><span class="p">,</span><span class="s2">&quot;acetone&quot;</span><span class="p">,</span><span class="s2">&quot;pentane&quot;</span><span class="p">])</span>
+</span></code></pre></div></td></tr></table></div></p>
+</div>
+</div>
+</div>
+</details>
+<h2 id="35-comment-connaitre-le-type-dune-donnee-dans-une-variable">3.5 Comment connaître le type d'une donnée dans une variable ?</h2>
+<p>On utilise la fonction <code class="language-python highlight"><span class="nb">type</span><span class="p">()</span></code> en passant en argument la variable. La fonction renvoie alors le type 
+sous la forme d'une chaine de caractère. Cela servira surtout à débogguer en cas d'erreurs.
+On peut aussi utiliser l'explorateur de variable pour voir directement le type.</p>
+<details class="example">
+<summary>Test 2.5 : fonction type()</summary>
+<div class="tabbed-set tabbed-alternate" data-tabs="21:2"><input checked="checked" id="__tabbed_21_1" name="__tabbed_21" type="radio" /><input id="__tabbed_21_2" name="__tabbed_21" type="radio" /><div class="tabbed-labels"><label for="__tabbed_21_1">Enoncé</label><label for="__tabbed_21_2">Solution</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<ol>
+<li>Afficher le type des différentes variables définies dans le programme ci-dessous.
+<div class="language-py highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-26-1">1</a></span>
+<span class="normal"><a href="#__codelineno-26-2">2</a></span>
+<span class="normal"><a href="#__codelineno-26-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1"></a><span class="n">nb_nucleons</span> <span class="o">=</span> <span class="mi">31</span>
+</span><span id="__span-26-2"><a id="__codelineno-26-2" name="__codelineno-26-2"></a><span class="n">masse_nucleon</span> <span class="o">=</span>  <span class="mf">1.67e-27</span>
+</span><span id="__span-26-3"><a id="__codelineno-26-3" name="__codelineno-26-3"></a><span class="n">Nom_element</span> <span class="o">=</span> <span class="s2">&quot;Phosphore P&quot;</span>
+</span></code></pre></div></td></tr></table></div></li>
+</ol>
+</div>
+<div class="tabbed-block">
+<div class="language-py highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-27-1">1</a></span>
+<span class="normal"><a href="#__codelineno-27-2">2</a></span>
+<span class="normal"><a href="#__codelineno-27-3">3</a></span>
+<span class="normal"><a href="#__codelineno-27-4">4</a></span>
+<span class="normal"><a href="#__codelineno-27-5">5</a></span>
+<span class="normal"><a href="#__codelineno-27-6">6</a></span>
+<span class="normal"><a href="#__codelineno-27-7">7</a></span>
+<span class="normal"><a href="#__codelineno-27-8">8</a></span>
+<span class="normal"><a href="#__codelineno-27-9">9</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-27-1"><a id="__codelineno-27-1" name="__codelineno-27-1"></a><span class="n">nb_nucleons</span> <span class="o">=</span> <span class="mi">31</span>
+</span><span id="__span-27-2"><a id="__codelineno-27-2" name="__codelineno-27-2"></a><span class="n">type_nb_nucleon</span> <span class="o">=</span> <span class="nb">type</span><span class="p">(</span><span class="n">nb_nucleons</span><span class="p">)</span>
+</span><span id="__span-27-3"><a id="__codelineno-27-3" name="__codelineno-27-3"></a><span class="nb">print</span><span class="p">(</span><span class="n">type_nb_nucleon</span><span class="p">)</span>
+</span><span id="__span-27-4"><a id="__codelineno-27-4" name="__codelineno-27-4"></a>
+</span><span id="__span-27-5"><a id="__codelineno-27-5" name="__codelineno-27-5"></a><span class="n">masse_nucleon</span> <span class="o">=</span>  <span class="mf">1.67e-27</span>
+</span><span id="__span-27-6"><a id="__codelineno-27-6" name="__codelineno-27-6"></a><span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">masse_nucleon</span><span class="p">))</span>
+</span><span id="__span-27-7"><a id="__codelineno-27-7" name="__codelineno-27-7"></a>
+</span><span id="__span-27-8"><a id="__codelineno-27-8" name="__codelineno-27-8"></a><span class="n">Nom_element</span> <span class="o">=</span> <span class="s2">&quot;Phosphore P&quot;</span>
+</span><span id="__span-27-9"><a id="__codelineno-27-9" name="__codelineno-27-9"></a><span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">Nom_element</span><span class="p">))</span>
+</span></code></pre></div></td></tr></table></div>
+</div>
+</div>
+</div>
+</details>
+<h2 id="26-comment-convertir-un-type-de-donnees-en-un-autre-type">2.6 Comment convertir un type de données en un autre type ?</h2>
+<p>En utilisant ces 3 fonctions élémentaires <code class="language-python highlight"><span class="nb">int</span><span class="p">()</span></code>, <code class="language-python highlight"><span class="nb">float</span><span class="p">()</span></code>, <code class="language-python highlight"><span class="nb">str</span><span class="p">()</span></code>, on peut convertir :</p>
+<ul>
+<li>un nombre flottant ou un entier au format chaine de caractères <strong>en</strong> un nombre entier.
+Exemples : <code class="language-python highlight"><span class="nb">int</span><span class="p">(</span><span class="mf">333.258</span><span class="p">)</span></code> , <code class="language-python highlight"><span class="nb">int</span><span class="p">(</span><span class="s2">&quot;10&quot;</span><span class="p">)</span></code> </li>
+<li>un nombre entier ou un nombre flottant <strong>en</strong> une chaine de caractères. <br />
+Exemples : <code class="language-python highlight"><span class="nb">str</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span></code> , <code class="language-python highlight"><span class="nb">str</span><span class="p">(</span><span class="mf">333.258</span><span class="p">)</span></code></li>
+<li>un nombre entier ou un nombre quelconque au format chaine de caractères <strong>en</strong> un nombre flottant.<br />
+Exemples : <code class="language-python highlight"><span class="nb">float</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span></code> , <code class="language-python highlight"><span class="nb">float</span><span class="p">(</span><span class="s2">&quot;10&quot;</span><span class="p">)</span></code>, <code class="language-python highlight"><span class="nb">float</span><span class="p">(</span><span class="s2">&quot;333.258&quot;</span><span class="p">)</span></code>, </li>
+</ul>
+<details class="example">
+<summary>Test 2.6 : Conversion</summary>
+<div class="tabbed-set tabbed-alternate" data-tabs="22:2"><input checked="checked" id="__tabbed_22_1" name="__tabbed_22" type="radio" /><input id="__tabbed_22_2" name="__tabbed_22" type="radio" /><div class="tabbed-labels"><label for="__tabbed_22_1">Enoncé</label><label for="__tabbed_22_2">Solution</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<ol>
+<li>Afficher la valeur entière du nombre 36.8951 </li>
+<li>Afficher le nombre 6.358e24 en chaîne de caractères </li>
+<li>Convertir le texte "78.21" en nombre.</li>
+</ol>
+</div>
+<div class="tabbed-block">
+<div class="language-py highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-28-1">1</a></span>
+<span class="normal"><a href="#__codelineno-28-2">2</a></span>
+<span class="normal"><a href="#__codelineno-28-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-28-1"><a id="__codelineno-28-1" name="__codelineno-28-1"></a><span class="nb">print</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="mf">36.8951</span><span class="p">))</span>
+</span><span id="__span-28-2"><a id="__codelineno-28-2" name="__codelineno-28-2"></a><span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="mf">6.358e24</span><span class="p">))</span>
+</span><span id="__span-28-3"><a id="__codelineno-28-3" name="__codelineno-28-3"></a><span class="nb">print</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="s2">&quot;78.21&quot;</span><span class="p">))</span>
+</span></code></pre></div></td></tr></table></div>
+</div>
+</div>
+</div>
+</details>
+<div class="admonition note">
+<p class="admonition-title">Ce qu'il faut savoir faire avant de continuer :</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" checked/><span class="task-list-indicator"></span></label> Connaître et manipuler les différents types de données standards</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" checked/><span class="task-list-indicator"></span></label> Réaliser des calculs simples</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" checked/><span class="task-list-indicator"></span></label> Comparer des variables</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" checked/><span class="task-list-indicator"></span></label> Formater une chaîne de caractère </li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" checked/><span class="task-list-indicator"></span></label> Afficher une valeur numérique avec des chiffres significatifs et en notation scientifique</li>
+</ul>
+</div>
+<div class="admonition quote">
+<p class="admonition-title"><em>Citation d'Albert Einstein</em></p>
+<p><em>"Les machines un jour pourront résoudre tous les problèmes, mais jamais aucune d'entre elles ne 
+pourra en poser un !"</em></p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      This work © 2025 by Teddy ROBERT is licensed under CC BY-NC-SA 4.0
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "content.code.select"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.f55a23d4.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

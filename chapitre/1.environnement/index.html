@@ -1,0 +1,916 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://<ton-user>.github.io/<ton-repo>/chapitre/1.environnement/">
+      
+      
+        <link rel="prev" href="../../avant-propos/">
+      
+      
+        <link rel="next" href="../2.variable/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.20">
+    
+    
+      
+        <title>1. Environnement de développement - Formation Python pour les enseignants de Physique-Chimie</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.e53b48f4.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#1-environnement-de-developpement" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Formation Python pour les enseignants de Physique-Chimie" class="md-header__button md-logo" aria-label="Formation Python pour les enseignants de Physique-Chimie" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Formation Python pour les enseignants de Physique-Chimie
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              1. Environnement de développement
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Formation Python pour les enseignants de Physique-Chimie" class="md-nav__button md-logo" aria-label="Formation Python pour les enseignants de Physique-Chimie" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Formation Python pour les enseignants de Physique-Chimie
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../avant-propos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Avant-propos
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Chapitres
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Chapitres
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    1. Environnement de développement
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    1. Environnement de développement
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#11-que-contient-linterface-de-spyder" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.1 Que contient l'interface de Spyder ?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-comment-apparait-un-script-dans-cet-interface" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.2 Comment apparaît un script dans cet interface ?
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2.variable/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2. Variables
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3.donnee/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    3. Types de données
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../4.fonction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    4. Fonctions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../5.condition/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    5. Structures conditionnelles
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../6.boucle/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    6. Boucles
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../7.module/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    7. Modules
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../8.numpy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    8. Module Numpy
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../9.matplotlib/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    9. Module Matplotlib
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10.scipy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    10. Module Scipy
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Ressources
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Ressources
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ressource/generalite/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Généralités
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ressource/seconde/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Seconde Générale et Technologique
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ressource/premiere/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Première Générale
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ressource/terminale/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Terminale Générale
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../annexe/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Annexes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#11-que-contient-linterface-de-spyder" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.1 Que contient l'interface de Spyder ?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-comment-apparait-un-script-dans-cet-interface" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.2 Comment apparaît un script dans cet interface ?
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="1-environnement-de-developpement">1. Environnement de développement</h1>
+<p>Nous allons utiliser l'environnement de développement <strong>Spyder</strong>. Il est destiné aux scientifiques.
+Il est libre, multiplateforme et intègre de nombreuses bibliothèques utiles d'usage scientifique pour programmer dans 
+le cadre de la physique-chimie au lycée.</p>
+<p>Lien de téléchargement : <a href="https://www.spyder-ide.org/">Spyder</a></p>
+<h2 id="11-que-contient-linterface-de-spyder">1.1 Que contient l'interface de Spyder ?</h2>
+<p>L'interface de Spyder contient : </p>
+<p><img alt="image" src="../../image/interface_spyder.png" /></p>
+<ol>
+<li>une zone de saisie du code où chaque ligne est numérotée. </li>
+<li>une console python interactive où s'affiche les résultats mais aussi les messages d'erreurs.</li>
+<li>une série d'onglets comme l'explorateur de fichiers, l'explorateur de variables, la visualisation des graphiques, ... </li>
+<li>des icônes dans la barre de menu pour créer, ouvrir et sauvegarder des fichiers.</li>
+<li>une icône pour exécuter un script.</li>
+<li>une icône pour basculer entre un affichage graphique dans Spyder ou un affichage graphique dans une fenêtre extérieure interactive.</li>
+</ol>
+<details class="example">
+<summary>Test 1.1 : Interface</summary>
+<ol>
+<li>Aprés avoir installé la dernière version de Spyder, démarrer le logiciel.</li>
+<li>Identifier les différentes zones de l'interface afin de se repérer.</li>
+</ol>
+</details>
+<h2 id="12-comment-apparait-un-script-dans-cet-interface">1.2 Comment apparaît un script dans cet interface ?</h2>
+<details class="example">
+<summary>Test 1.2.1 : Script</summary>
+<ol>
+<li>Télécharger le script suivant : <a href="../../script/Suivi_pH_metrique.py">Suivi_pH_metrique</a></li>
+<li>Ouvrir le script avec Spyder et l'exécuter.</li>
+<li>Observer le code, la console python, les graphiques et les variables créées.</li>
+</ol>
+</details>
+<p>Que remarque-t-on ?</p>
+<ul>
+<li>Il y a des lignes d'instructions avec une syntaxe coloré par défaut. Ceci met en évidence les mots-clés du language, les données, ...
+Il faut bien comprendre que Python exécute normalement les instructions de la première ligne à la dernière ligne. 
+L'ordre dans lequel ces instructions sont écrites à l'intérieur du programme est donc extrêmement important et c'est cela
+qui va définir notre algorithme.</li>
+<li>Il y a des sauts de ligne (ligne 8, 13, ...). Ces sauts permettent d'aérer le code et de le rendre plus lisible.</li>
+<li>Il y a des lignes avec du texte qui est précédé d'un <code>#</code>. Ce sont des <strong>commentaires</strong>. Tout ce qui est écrit 
+après le caractère <code>#</code> est ignoré par Python jusqu'à la fin de la ligne. Les commentaires sont facultatifs mais fortement 
+recommandés afin de bien expliquer le code.</li>
+<li>Il y a tout en haut du script un bloc de texte entouré de triples guillemets <code>"""</code>. Ce sont des <strong>docstrings</strong> c'est à dire 
+des blocs de chaînes de commentaires pour documenter le code et exploitables par Python pour générer de la documentation.</li>
+<li>Il y a des lignes d'instructions qui se terminent par <code>:</code> et sont suivis de blocs d'instructions décalés : ce décalage
+s'appelle <strong>l'indentation</strong>. L'indentation représente un ou plusieurs espaces au début d'une ligne de code.    </li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Important !</p>
+<p>L'indentation fait partie intégrante de la syntaxe de python car elle sert à définir des blocs d'instructions. 
+Un code mal indenté affichera systèmatiquement une erreur. Pour éviter ces erreurs, utiliser la touche <span class="keys"><kbd class="key-tab">Tab</kbd></span> du clavier.</p>
+</div>
+<ul>
+<li>Dans la console python, un résultat est affiché : <code>Vbe= 13.4 mL</code>.</li>
+<li>Dans l'onglet Graphes, il y a deux graphiques qu'on peut zoomer et enregistrer en tant que fichier image. </li>
+<li>Dans l'onglet Explorateur de variables, nous avons toutes les variables créées suite à l'exécution du script.</li>
+</ul>
+<details class="example">
+<summary>Test 1.2.2 : Script</summary>
+<p>Dans le script précédent,</p>
+<ol>
+<li>Ajouter des commentaires et exécuter le script.</li>
+<li>Sur une des lignes, supprimer une indentation et exécuter le script. Un message d'erreur va bien sûr se produire. 
+Remettre alors l'indentation et exécuter à nouveau le script.</li>
+<li>Basculer l'affichage des graphiques en fenêtre interactive en cliquant sur l'icone (6) et exécuter à nouveau le script.</li>
+<li>Identifier quelques variables dans l'explorateur de variables. </li>
+</ol>
+</details>
+<div class="admonition note">
+<p class="admonition-title">Ce qu'il faut savoir faire avant de continuer :</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" checked/><span class="task-list-indicator"></span></label> Ouvrir et sauvegarder un script avec Spyder </li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" checked/><span class="task-list-indicator"></span></label> Exécuter un script avec Spyder</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" checked/><span class="task-list-indicator"></span></label> Reconnaître et réaliser une indentation</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" checked/><span class="task-list-indicator"></span></label> Reconnaître et écrire un commentaire</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" checked/><span class="task-list-indicator"></span></label> Basculer l'affichage graphique en mode fenêtre interactive</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" checked/><span class="task-list-indicator"></span></label> Explorer des variables </li>
+</ul>
+</div>
+<div class="admonition quote">
+<p class="admonition-title"><em>Citation d'Albert Einstein</em></p>
+<p><em>"La connaissance s'acquiert par l'expérience, tout le reste n'est que de l'information."</em></p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      This work © 2025 by Teddy ROBERT is licensed under CC BY-NC-SA 4.0
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "content.code.select"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.f55a23d4.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

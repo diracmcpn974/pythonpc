@@ -1,0 +1,7 @@
+Distance entre récepteur 1 et récepteur 2 (m) | Temps mesuré entre les deux récepteurs (µs) 
+0.30 | 875 
+0.40 | 1167 
+0.50 | 1459 
+0.60 | 1750 
+0.70 | 2041 
+0.80 | 2333 

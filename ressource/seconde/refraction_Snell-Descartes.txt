@@ -1,0 +1,7 @@
+Angle d’incidence i (°) | Angle de réfraction r (°) 
+10 | 6.6 |
+20 | 13.1 | 
+30 | 19.5 | 
+40 | 25.0 | 
+50 | 30.6 | 
+60 | 35.7 | 

@@ -1,0 +1,1120 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://<ton-user>.github.io/<ton-repo>/chapitre/7.module/">
+      
+      
+        <link rel="prev" href="../6.boucle/">
+      
+      
+        <link rel="next" href="../8.numpy/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.20">
+    
+    
+      
+        <title>7. Modules - Formation Python pour les enseignants de Physique-Chimie</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.e53b48f4.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#7-modules" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Formation Python pour les enseignants de Physique-Chimie" class="md-header__button md-logo" aria-label="Formation Python pour les enseignants de Physique-Chimie" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Formation Python pour les enseignants de Physique-Chimie
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              7. Modules
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Formation Python pour les enseignants de Physique-Chimie" class="md-nav__button md-logo" aria-label="Formation Python pour les enseignants de Physique-Chimie" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Formation Python pour les enseignants de Physique-Chimie
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../avant-propos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Avant-propos
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Chapitres
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Chapitres
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1.environnement/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    1. Environnement de développement
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2.variable/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2. Variables
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3.donnee/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    3. Types de données
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../4.fonction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    4. Fonctions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../5.condition/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    5. Structures conditionnelles
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../6.boucle/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    6. Boucles
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    7. Modules
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    7. Modules
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#71-programmation-oriente-objet-et-notion-de-classe" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.1 Programmation orienté objet et notion de classe
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#72-revenons-aux-modules" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.2 Revenons aux modules
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#73-comment-trouver-le-module-et-la-fonction-qui-minteressent" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.3 Comment trouver LE module et LA fonction qui m'intéressent ?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#74-comment-importer-et-utiliser-les-objets-contenus-dans-un-module" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.4 Comment importer et utiliser les objets contenus dans un module ?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#75-et-si-je-veux-creer-mon-propre-module" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.5 Et si je veux créer mon propre module ?
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../8.numpy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    8. Module Numpy
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../9.matplotlib/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    9. Module Matplotlib
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10.scipy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    10. Module Scipy
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Ressources
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Ressources
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ressource/generalite/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Généralités
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ressource/seconde/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Seconde Générale et Technologique
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ressource/premiere/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Première Générale
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ressource/terminale/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Terminale Générale
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../annexe/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Annexes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#71-programmation-oriente-objet-et-notion-de-classe" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.1 Programmation orienté objet et notion de classe
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#72-revenons-aux-modules" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.2 Revenons aux modules
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#73-comment-trouver-le-module-et-la-fonction-qui-minteressent" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.3 Comment trouver LE module et LA fonction qui m'intéressent ?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#74-comment-importer-et-utiliser-les-objets-contenus-dans-un-module" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.4 Comment importer et utiliser les objets contenus dans un module ?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#75-et-si-je-veux-creer-mon-propre-module" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.5 Et si je veux créer mon propre module ?
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="7-modules">7. Modules</h1>
+<p>Avant de définir un module et afin de mieux appréhender ce chapitre, on va introduire quelques notions sur la 
+programmation orientée objet et les classes.</p>
+<h2 id="71-programmation-oriente-objet-et-notion-de-classe">7.1 Programmation orienté objet et notion de classe</h2>
+<p>Une <strong>classe</strong> est une structure qui contient des variables et des fonctions. En programmation orienté objet, on utilise ces 
+structures pour créer des objets (une personne, un bien matériel, une entité physique, ...). C'est en quelque sorte 
+le plan de fabrication de l'objet. Dans cette structure, les fonctions représenteront ce que l'objet sait faire : ce 
+sont les <strong>méthodes</strong> et les variables représenteront les propriétés de l'objet : ce sont les <strong>attributs</strong>.</p>
+<ul>
+<li>
+<p>Par exemple, on peut créer un personnage avec une classe <code class="language-python highlight"><span class="n">Personnage</span></code>. Ce personnage peut se déplacer, parler
+avec un autre personnage, manger, ... Ces actions seront définies par des <strong>méthodes</strong> (fonctions). De plus, ce personnage 
+possède des cheveux, des yeux, une taille, un âge, ... Ces propriétes seront définies par des <strong>attributs</strong> (variables).</p>
+</li>
+<li>
+<p>De même, en physique-chimie, on pourrait créer une classe <code class="language-python highlight"><span class="n">SolutionAqueuse</span></code>. Cette solution possède une masse,
+un volume, une concentration, ... . Ces propriétes seront définies par des <strong>attributs</strong> (variables). De plus, cette 
+solution peut-être diluée, titrée par une autre solution,... . Ces actions seront définies par des <strong>méthodes</strong> (fonctions).  </p>
+</li>
+</ul>
+<p>Ainsi avec cette façon de penser, on se retrouve avec du code où de nombreux objets interagissent entre eux et non plus avec
+du code contenant de simples fonctions et variables isolées. Les fonctions et les variables sont ainsi encapsulées dans l'objet.
+L'intérêt de ce concept largement utilisé dans le monde de l'informatique est d'avoir un code plus lisible, cohérent, 
+robuste, évolutif et modulaire. Cela évite de réécrire du code identique pour des objets similaires et permet de réduire
+les erreurs. Chaque objet peut ainsi être développé, testé et utilisé indépendamment.  </p>
+<p>Il faut bien comprendre que dans Python, TOUT est objet. L'objectif, ici, n'est pas de construire nos propres classes 
+mais de comprendre comment s'en servir. Par exemple, les données vues dans le chapitre 3 sont toutes des objets 
+construits à partir de classe. Nous avions même utilisé des méthodes sur ces objets.</p>
+<div class="admonition example">
+<p class="admonition-title">Test 7.1.1 : Classe</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Enoncé</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<ol>
+<li>Tester le code suivant :
+<div class="language-py highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span>
+<span class="normal"><a href="#__codelineno-0-2">2</a></span>
+<span class="normal"><a href="#__codelineno-0-3">3</a></span>
+<span class="normal"><a href="#__codelineno-0-4">4</a></span>
+<span class="normal"><a href="#__codelineno-0-5">5</a></span>
+<span class="normal"><a href="#__codelineno-0-6">6</a></span>
+<span class="normal"><a href="#__codelineno-0-7">7</a></span>
+<span class="normal"><a href="#__codelineno-0-8">8</a></span>
+<span class="normal"><a href="#__codelineno-0-9">9</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="n">a</span> <span class="o">=</span> <span class="mf">3.5</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3"></a>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="n">b</span> <span class="o">=</span> <span class="s2">&quot;le rayon vaut </span><span class="si">{}</span><span class="s2"> cm&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6"></a>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="n">rayon</span> <span class="o">=</span> <span class="p">[]</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8"></a><span class="n">rayon</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9"></a><span class="nb">print</span><span class="p">(</span><span class="n">liste</span><span class="p">)</span>
+</span></code></pre></div></td></tr></table></div></li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<p>En analysant le code, on remarque que : </p>
+<ul>
+<li>la variable <code class="language-python highlight"><span class="n">a</span></code> est bien un objet de la classe <code class="language-python highlight"><span class="nb">float</span></code>. </li>
+<li><code class="language-python highlight"><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">a</span><span class="p">)</span></code> est une <strong>méthode</strong> de la classe <code class="language-python highlight"><span class="nb">str</span></code>. Elle est utilisée sur l'objet <code class="language-python highlight"><span class="s2">&quot;le rayon vaut </span><span class="si">{}</span><span class="s2"> cm&quot;</span></code></li>
+<li><code class="language-python highlight"><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">a</span><span class="p">)</span></code> est une <strong>méthode</strong> de la classe <code class="language-python highlight"><span class="nb">list</span></code>. Elle est utilisée sur l'objet <code class="language-python highlight"><span class="n">rayon</span></code></li>
+</ul>
+<p>En résumé : </p>
+<ul>
+<li>l'objet est un représentant d'une classe : on parle aussi d'instance de la classe. </li>
+<li>Les méthodes ou les attributs qui sont contenues dans les objets sont accessibles par un point <code class="language-python highlight"><span class="o">.</span></code> relié à ces objets.</li>
+</ul>
+<h2 id="72-revenons-aux-modules">7.2 Revenons aux modules</h2>
+<p>Un <strong>module</strong> est un fichier ou plusieurs fichiers contenant un ensemble de variables, de fonctions, d'objets, de classe, 
+de structures prêts à l’emploi, que l’on peut importer dans un programme.<br />
+Ex : racine carrée, sinus, visualisation de courbe, résolution d’équations, modélisation de données, ...</p>
+<p>Cela permet de gagner du temps, de réduire les risques d'erreur, d'avoir un code plus lisible et surtout de réaliser des 
+tâches complexes en quelques lignes de code. 
+En effet, il n'est pas toujours utile de vouloir réinventer la roue surtout que les contenus des modules sont 
+testés, fiables et optimisés.</p>
+<p>Python possède une vaste collection de bibliothèques. Voici quelques modules scientifiques utiles à la programmation
+en physique-chimie au lycée et bien au delà : </p>
+<ul>
+<li><code class="language-python highlight"><span class="n">math</span></code> : pour les bases mathématiques de la bibliothèque standard de Python.   </li>
+<li><code class="language-python highlight"><span class="n">numpy</span></code> : pour le calcul scientifique déja installé avec Spyder.  </li>
+<li><code class="language-python highlight"><span class="n">scipy</span></code> : pour la modélisation scientifique déja installé avec Spyder.   </li>
+<li><code class="language-python highlight"><span class="n">matplotlib</span></code> : pour la visualisation graphique déja installé avec Spyder.  </li>
+<li><code class="language-python highlight"><span class="n">panda</span></code> : pour la science des données déja installé avec Spyder.</li>
+</ul>
+<p>Il faut savoir que tous les modules sont programmés en orienté objet. Les modules dans Python sont donc des objets.</p>
+<h2 id="73-comment-trouver-le-module-et-la-fonction-qui-minteressent">7.3 Comment trouver LE module et LA fonction qui m'intéressent ?</h2>
+<p>Cette question nécessite d'être posée. La réponse la plus simple est de faire quelques recherches sur le net 
+(exemples de script déja existant avec la fonction, tutoriels sur le module, demander à une IA, ...). Une fois le module 
+ciblé, il est recommandé d'aller regarder la documentation officielle du module pour plus de détails même s'il est complexe
+de s'y retrouver au début. Si la documentation est bien faite, des tutoriels et des exemples seront disponibles pour tester.
+Voici la documentation des modules cités ci-dessus :</p>
+<ul>
+<li><code class="language-python highlight"><span class="n">math</span></code> : <a href="https://docs.python.org/3/library/math.html">ici</a>   </li>
+<li><code class="language-python highlight"><span class="n">numpy</span></code> : <a href="https://numpy.org/">ici</a>  </li>
+<li><code class="language-python highlight"><span class="n">scipy</span></code> : <a href="https://scipy.org/">ici</a>   </li>
+<li><code class="language-python highlight"><span class="n">matplotlib</span></code> : <a href="https://matplotlib.org/">ici</a>  </li>
+<li><code class="language-python highlight"><span class="n">panda</span></code> : <a href="https://pandas.pydata.org/">ici</a></li>
+</ul>
+<h2 id="74-comment-importer-et-utiliser-les-objets-contenus-dans-un-module">7.4 Comment importer et utiliser les objets contenus dans un module ?</h2>
+<p>Une fois que le module que l'on souhaite utilisé est <strong>bien</strong> installé, il y a deux façons de les importer :</p>
+<ul>
+<li>avec <code class="language-python highlight"><span class="kn">import</span><span class="w"> </span><span class="nn">nom_du_module</span></code>  </li>
+<li>avec <code class="language-python highlight"><span class="kn">from</span><span class="w"> </span><span class="nn">nom_du_module</span><span class="w"> </span><span class="kn">import</span> <span class="n">nom_objet</span></code> </li>
+</ul>
+<div class="admonition example">
+<p class="admonition-title">Test 5.4.1 : Module numpy</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Enoncé</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>On souhaite utiliser la variable <code class="language-python highlight"><span class="n">pi</span></code> et la fonction <code class="language-python highlight"><span class="n">sin</span><span class="p">()</span></code> 
+(voir <a href="https://numpy.org/doc/2.1/reference/generated/numpy.sin.html">doc</a>) disponible dans le module 
+Numpy<code class="language-python highlight"><span class="n">numpy</span></code> afin de faire un calcul. </p>
+<ol>
+<li>
+<p>Tester le code suivant :
+<div class="language-py highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span>
+<span class="normal"><a href="#__codelineno-1-2">2</a></span>
+<span class="normal"><a href="#__codelineno-1-3">3</a></span>
+<span class="normal"><a href="#__codelineno-1-4">4</a></span>
+<span class="normal"><a href="#__codelineno-1-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="c1">#1ere façon d&#39;importer</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span>   
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="n">angle</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">2</span> 
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="n">y</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">angle</span><span class="p">)</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="nb">print</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+</span></code></pre></div></td></tr></table></div></p>
+</li>
+<li>
+<p>Tester le code suivant :
+<div class="language-py highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span>
+<span class="normal"><a href="#__codelineno-2-2">2</a></span>
+<span class="normal"><a href="#__codelineno-2-3">3</a></span>
+<span class="normal"><a href="#__codelineno-2-4">4</a></span>
+<span class="normal"><a href="#__codelineno-2-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="c1">#2eme façon d&#39;importer</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="kn">import</span> <span class="n">pi</span><span class="p">,</span><span class="n">sin</span>  
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="n">angle</span> <span class="o">=</span> <span class="n">pi</span><span class="o">/</span><span class="mi">2</span> 
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="n">y</span> <span class="o">=</span> <span class="n">sin</span><span class="p">(</span><span class="n">angle</span><span class="p">)</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5"></a><span class="nb">print</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+</span></code></pre></div></td></tr></table></div></p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<p>Avec la 1<sup>ère</sup> façon, il faut bien comprendre que :</p>
+<ul>
+<li>à la ligne 1, on importe le module <code class="language-python highlight"><span class="n">numpy</span></code> au début.  </li>
+<li>à la ligne 2, <code class="language-python highlight"><span class="n">numpy</span><span class="o">.</span><span class="n">pi</span></code> signifie qu'on accède à <strong>l'attribut</strong> <code class="language-python highlight"><span class="n">pi</span></code> <strong>contenu</strong> dans l'objet <code class="language-python highlight"><span class="n">numpy</span></code>.
+Le <code class="language-python highlight"><span class="o">.</span></code> est très important comme nous l'avons vu précedemment.</li>
+<li>à la ligne 3, <code class="language-python highlight"><span class="n">numpy</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">angle</span><span class="p">)</span></code> signifie qu'on utilise <strong>la méthode</strong> <code class="language-python highlight"><span class="n">sin</span><span class="p">()</span></code> <strong>contenue</strong> dans 
+l'objet <code class="language-python highlight"><span class="n">numpy</span></code> avec pour argument <code class="language-python highlight"><span class="n">angle</span></code>. Cette fonction renvoie alors la valeur du sinus dans la variable y.  </li>
+<li>Dans l'explorateur de variables, <code class="language-python highlight"><span class="n">pi</span></code> et <code class="language-python highlight"><span class="n">sin</span><span class="p">()</span></code> n'apparaissent pas alors que le module <code class="language-python highlight"><span class="n">numpy</span></code> oui.</li>
+</ul>
+<p>Avec la 2<sup>ème</sup> façon, il faut bien comprendre que :</p>
+<ul>
+<li>à la ligne 1, dans le module <code class="language-python highlight"><span class="n">numpy</span></code>, on importe directement la variable <code class="language-python highlight"><span class="n">pi</span></code> et la fonction <code class="language-python highlight"><span class="n">sin</span><span class="p">()</span></code> dans le script.   </li>
+<li>à la ligne 2, <code class="language-python highlight"><span class="n">pi</span></code> est une variable de notre script et est utilisée directement.  </li>
+<li>à la ligne 3 <code class="language-python highlight"><span class="n">sin</span><span class="p">(</span><span class="n">angle</span><span class="p">)</span></code> est une fonction de notre script et est utilisée directement.   </li>
+<li>Dans l'explorateur de variables, <code class="language-python highlight"><span class="n">pi</span></code> et <code class="language-python highlight"><span class="n">sin</span><span class="p">()</span></code> apparaissent alors que le module numpy non.</li>
+</ul>
+<p>Cette 2<sup>ème</sup> façon d'importer n'est pas recommandée car cela peut créer des conflits dans le script si on dispose déja 
+de variables nommées <code class="language-python highlight"><span class="n">pi</span></code> ou de fonction nommée <code class="language-python highlight"><span class="n">sin</span><span class="p">()</span></code> qu'on a importé d'un autre module ou qu'on a créé nous mêmes.
+Il vaut mieux privilégier la programmation orientée objet avec <code class="language-python highlight"><span class="kn">import</span></code> et l'utilisation du <code class="language-python highlight"><span class="o">.</span></code></p>
+<p>Parfois il s'avère que la méthode que l'on souhaite utiliser se trouve dans un "sous-module" du module. </p>
+<div class="admonition example">
+<p class="admonition-title">Test 7.4.2 : Module numpy</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:1"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Enoncé</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>On souhaite par exemple convertir un tableau de textes écrit en minuscule en majuscule en utilisant la méthode 
+<code class="language-python highlight"><span class="n">upper</span><span class="p">()</span></code> qui se trouve dans "le sous-module" <code class="language-python highlight"><span class="n">strings</span></code> du module <code class="language-python highlight"><span class="n">numpy</span></code> (Voir <a href="https://numpy.org/doc/2.1/reference/generated/numpy.strings.upper.html#numpy.strings.upper">doc</a>).  <br />
+1. Tester le code suivant :
+<div class="language-py highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span>
+<span class="normal"><a href="#__codelineno-3-2">2</a></span>
+<span class="normal"><a href="#__codelineno-3-3">3</a></span>
+<span class="normal"><a href="#__codelineno-3-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span>   
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="n">minuscule</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;carbone&quot;</span><span class="p">,</span><span class="s2">&quot;oxygene&quot;</span><span class="p">,</span><span class="s2">&quot;hydrogene&quot;</span><span class="p">]</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="n">majuscule</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">strings</span><span class="o">.</span><span class="n">upper</span><span class="p">(</span><span class="n">minuscule</span><span class="p">)</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4"></a><span class="nb">print</span><span class="p">(</span><span class="n">majuscule</span><span class="p">)</span>
+</span></code></pre></div></td></tr></table></div></p>
+</div>
+</div>
+</div>
+</div>
+<ul>
+<li>A la ligne 3, on remarque que <code class="language-python highlight"><span class="n">upper</span><span class="p">()</span></code> est <strong>contenue</strong> dans <code class="language-python highlight"><span class="n">strings</span></code> qui est <strong>contenu</strong> dans <code class="language-python highlight"><span class="n">numpy</span></code>.
+Cela peut rapidement alourdir un code ou être source d'erreurs de syntaxe. Pour pallier à cela, on utilise l'alias 
+<code class="language-python highlight"><span class="k">as</span></code> dans l'importation afin de raccourcir la syntaxe.  </li>
+</ul>
+<div class="admonition example">
+<p class="admonition-title">Test 7.4.3 : Module numpy</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:1"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">Enoncé</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<ol>
+<li>Tester le code suivant :
+<div class="language-py highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1">1</a></span>
+<span class="normal"><a href="#__codelineno-4-2">2</a></span>
+<span class="normal"><a href="#__codelineno-4-3">3</a></span>
+<span class="normal"><a href="#__codelineno-4-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">numpy.strings</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">nps</span>   
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="n">minuscule</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;carbone&quot;</span><span class="p">,</span><span class="s2">&quot;oxygene&quot;</span><span class="p">,</span><span class="s2">&quot;hydrogene&quot;</span><span class="p">]</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="n">majuscule</span> <span class="o">=</span> <span class="n">nps</span><span class="o">.</span><span class="n">upper</span><span class="p">(</span><span class="n">minuscule</span><span class="p">)</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4"></a><span class="nb">print</span><span class="p">(</span><span class="n">majuscule</span><span class="p">)</span>
+</span></code></pre></div></td></tr></table></div></li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<h2 id="75-et-si-je-veux-creer-mon-propre-module">7.5 Et si je veux créer mon propre module ?</h2>
+<p>Pour créer de manière simple son propre module, il suffit  : </p>
+<ul>
+<li>de créer un fichier appelé par exemple <em>mon_module.py</em> et de le placer dans le même dossier que le fichier du programme principal.</li>
+<li>dans le fichier <em>mon_module.py</em>, créer des variables et des fonctions.</li>
+<li>puis dans le fichier principal importer le module <em>mon_module.py</em> avec <code class="language-python highlight"><span class="kn">import</span><span class="w"> </span><span class="nn">mon_module</span></code> </li>
+<li>enfin appeler les variables avec <code class="language-python highlight"><span class="n">mon_module</span><span class="o">.</span><span class="n">ma_variable1</span></code> et les fonctions <code class="language-python highlight"><span class="n">mon_module</span><span class="o">.</span><span class="n">mafonction1</span><span class="p">(</span><span class="o">...</span><span class="p">)</span></code> </li>
+</ul>
+<p>Cela va de soit que si vous souhaiter un module robuste et extensible, il faudra se lancer dans la programmation orientée objet <img alt="😵" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f635.svg" title=":dizzy_face:" /></p>
+<div class="admonition note">
+<p class="admonition-title">Ce qu'il faut savoir faire avant de continuer :</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" checked/><span class="task-list-indicator"></span></label> Comprendre le concept orienté objet avec les notions de classes, objets, attributs et méthodes</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" checked/><span class="task-list-indicator"></span></label> Connaître les modules scientifiques utiles pour la physique-chimie  </li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" checked/><span class="task-list-indicator"></span></label> Rechercher des informations sur un module ou un objet particulier. </li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" checked/><span class="task-list-indicator"></span></label> Importer et utiliser un module ou un objet dans un script</li>
+</ul>
+</div>
+<div class="admonition quote">
+<p class="admonition-title"><em>Citation d'Albert Einstein</em></p>
+<p><em>"Si vous ne pouvez expliquer un concept à un enfant de six ans, c'est que vous ne le comprenez pas complètement."</em></p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      This work © 2025 by Teddy ROBERT is licensed under CC BY-NC-SA 4.0
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "content.code.select"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.f55a23d4.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
