@@ -1241,8 +1241,8 @@ espèce chimique selon sa température d'ébullition et de fusion.</li>
 </div>
 </details>
 <details class="example">
-<summary>Exercice 1.1.4 : Produits Ménagers <img alt="🟢" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f7e2.svg" title=":green_circle:" /></summary>
-<div class="tabbed-set tabbed-alternate" data-tabs="5:1"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">Enoncé</label></div>
+<summary>Exercice 1.1.4 : Produits Ménagers <img alt="🔴" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f534.svg" title=":red_circle:" /></summary>
+<div class="tabbed-set tabbed-alternate" data-tabs="5:2"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">Enoncé</label><label for="__tabbed_5_2">Solution</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>Il existe de très nombreux produits ménagers. Le vinaigre ménager, utilisé pour détartrer les robinetteries et 
@@ -1252,15 +1252,38 @@ utilisée pour raviver les couleurs des tapis, est une solution qui contient de 
 l'eau (H<sub>2</sub>O). L'eau déminéralisée, utilisée pour éviter les dépôts de calcaire dans les fers à repasser, ne 
 contient plus de minéraux (ions).</p>
 <ol>
-<li>Ecrire un programme contenant une liste des espèces chimiques citées ci-dessous.</li>
+<li>Ecrire un programme contenant un dictionnaire des produits ménagers cités ci-dessus avec la liste des espèces chimiques qu'ils contiennent.</li>
+<li>En utilisant une boucle, afficher pour chaque produit s'il s'agit d'un corps pur ou d'un mélange. </li>
 </ol>
+</div>
+<div class="tabbed-block">
+<div class="language-py highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-4-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-4-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-4-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-4-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-4-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-4-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-4-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-4-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-4-10">10</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="n">produits</span> <span class="o">=</span><span class="p">{</span><span class="s2">&quot;vinaigre ménager&quot;</span><span class="p">:[</span><span class="s2">&quot;eau&quot;</span><span class="p">,</span><span class="s2">&quot;acide acétique&quot;</span><span class="p">],</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2"></a>   <span class="s2">&quot;alcool à brûler&quot;</span> <span class="p">:</span> <span class="p">[</span><span class="s2">&quot;éthanol&quot;</span><span class="p">,</span><span class="s2">&quot;méthanol&quot;</span><span class="p">,</span><span class="s2">&quot;eau&quot;</span><span class="p">],</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3"></a>   <span class="s2">&quot;ammoniaque&quot;</span><span class="p">:[</span><span class="s2">&quot;ammoniac&quot;</span><span class="p">,</span><span class="s2">&quot;eau&quot;</span><span class="p">],</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4"></a>   <span class="s2">&quot;eau déminéralisée&quot;</span><span class="p">:[</span><span class="s2">&quot;eau&quot;</span><span class="p">]}</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5"></a>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6"></a><span class="k">for</span> <span class="n">prod</span><span class="p">,</span> <span class="n">especes</span> <span class="ow">in</span> <span class="n">produits</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7"></a><span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">especes</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">1</span><span class="p">:</span>
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">prod</span><span class="p">,</span><span class="s2">&quot; : mélange&quot;</span><span class="p">)</span>
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9"></a><span class="k">else</span><span class="p">:</span>
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">prod</span><span class="p">,</span><span class="s2">&quot; : corps pur&quot;</span><span class="p">)</span>
+</span></code></pre></div></td></tr></table></div>
 </div>
 </div>
 </div>
 </details>
 <details class="example">
 <summary>Exercice 1.1.5 : Composition de l'air <img alt="🔴" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f534.svg" title=":red_circle:" /></summary>
-<div class="tabbed-set tabbed-alternate" data-tabs="6:1"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><div class="tabbed-labels"><label for="__tabbed_6_1">Enoncé</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="6:2"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><input id="__tabbed_6_2" name="__tabbed_6" type="radio" /><div class="tabbed-labels"><label for="__tabbed_6_1">Enoncé</label><label for="__tabbed_6_2">Solution</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>L’air est principalement constitué de 78,08 % de diazote, de 20,95 % de dioxygène et 0.97 % d'autres gaz (Ar, 
@@ -1268,6 +1291,28 @@ CO<sub>2</sub>, Ne,...).</p>
 <ol>
 <li>Ecrire un programme permettant de visualiser la composition de l'air sous forme d'un diagramme circulaire.</li>
 </ol>
+</div>
+<div class="tabbed-block">
+<div class="language-py highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-5-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-5-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-5-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-5-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-5-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-5-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-5-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-5-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-5-10">10</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2"></a>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Diazote&#39;</span><span class="p">,</span> <span class="s1">&#39;Dioxygène&#39;</span><span class="p">,</span> <span class="s1">&#39;Autres gaz&#39;</span><span class="p">]</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4"></a><span class="n">sizes</span> <span class="o">=</span> <span class="p">[</span><span class="mf">78.08</span><span class="p">,</span> <span class="mf">20.95</span><span class="p">,</span> <span class="mf">0.97</span><span class="p">]</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5"></a>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6"></a><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7"></a><span class="n">ax</span><span class="o">.</span><span class="n">pie</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">sizes</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">labels</span><span class="p">,</span> <span class="n">autopct</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">%.2f%%</span><span class="s2">&quot;</span><span class="p">)</span>
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8"></a><span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Composition de l&#39;air en %&quot;</span><span class="p">)</span>
+</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9"></a>
+</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10"></a><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</span></code></pre></div></td></tr></table></div>
 </div>
 </div>
 </div>
