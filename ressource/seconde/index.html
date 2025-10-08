@@ -1319,7 +1319,7 @@ CO<sub>2</sub>, Ne,...).</p>
 </details>
 <details class="example">
 <summary>Exercice 1.1.6 : Mélange à 2 phases <img alt="🟢" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f7e2.svg" title=":green_circle:" /></summary>
-<div class="tabbed-set tabbed-alternate" data-tabs="7:1"><input checked="checked" id="__tabbed_7_1" name="__tabbed_7" type="radio" /><div class="tabbed-labels"><label for="__tabbed_7_1">Enoncé</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="7:2"><input checked="checked" id="__tabbed_7_1" name="__tabbed_7" type="radio" /><input id="__tabbed_7_2" name="__tabbed_7" type="radio" /><div class="tabbed-labels"><label for="__tabbed_7_1">Enoncé</label><label for="__tabbed_7_2">Solution</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>On introduit dans une éprouvette graduée 20 mL d'eau de densité 1 et 30 mL de cyclohexane de densité 0.779. 
@@ -1328,20 +1328,65 @@ Ces deux liquides sont incolores et non miscibles entre eux.</p>
 <li>Ecrire un programme avec une structure conditionnelle indiquant quel liquide est au-dessus de l'autre selon leur densité.</li>
 </ol>
 </div>
+<div class="tabbed-block">
+<div class="language-py highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1">1</a></span>
+<span class="normal"><a href="#__codelineno-6-2">2</a></span>
+<span class="normal"><a href="#__codelineno-6-3">3</a></span>
+<span class="normal"><a href="#__codelineno-6-4">4</a></span>
+<span class="normal"><a href="#__codelineno-6-5">5</a></span>
+<span class="normal"><a href="#__codelineno-6-6">6</a></span>
+<span class="normal"><a href="#__codelineno-6-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="n">espece_chimique</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;eau&quot;</span><span class="p">,</span><span class="s2">&quot;cyclohexane&quot;</span><span class="p">]</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="n">densite</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mf">0.779</span><span class="p">]</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3"></a>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4"></a><span class="k">if</span> <span class="n">densite</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">&lt;</span><span class="n">densite</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{0}</span><span class="s2"> est moins dense que </span><span class="si">{1}</span><span class="s2">, </span><span class="si">{0}</span><span class="s2"> se trouve donc au dessus de </span><span class="si">{1}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">espece_chimique</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">espece_chimique</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6"></a><span class="k">else</span><span class="p">:</span>
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{0}</span><span class="s2"> est plus dense que </span><span class="si">{1}</span><span class="s2">, </span><span class="si">{0}</span><span class="s2"> se trouve donc en dessous de </span><span class="si">{1}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">espece_chimique</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">espece_chimique</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+</span></code></pre></div></td></tr></table></div>
+</div>
 </div>
 </div>
 </details>
 <details class="example">
 <summary>Exercice 1.1.7 : Densité des métaux <img alt="🔵" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f535.svg" title=":blue_circle:" /></summary>
-<div class="tabbed-set tabbed-alternate" data-tabs="8:1"><input checked="checked" id="__tabbed_8_1" name="__tabbed_8" type="radio" /><div class="tabbed-labels"><label for="__tabbed_8_1">Enoncé</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="8:2"><input checked="checked" id="__tabbed_8_1" name="__tabbed_8" type="radio" /><input id="__tabbed_8_2" name="__tabbed_8" type="radio" /><div class="tabbed-labels"><label for="__tabbed_8_1">Enoncé</label><label for="__tabbed_8_2">Solution</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>La masse volumique du zinc solide est ρ<sub>zinc</sub> = 7,13 g·cm<sup>-3</sup>, celle du cuivre solide est ρ<sub>cuivre</sub> = 8 960 kg·m<sup>-3</sup> 
 et celle du fer ρ<sub>fer</sub> = 7,87 kg·dm<sup>-3</sup>. On donne la masse volumique de l'eau : ρ<sub>eau</sub> = 1,00 g·cm<sup>-3</sup>.</p>
 <ol>
-<li>Ecrire un programme avec une fonction permettant de convertir ces masses volumiques en g.cm<sup>-3</sup> et de 
-calculer ensuite les densités.</li>
+<li>Ecrire un programme avec une fonction permettant de convertir ces masses volumiques en g.cm<sup>-3</sup> et d'en déduire leur densité</li>
 </ol>
+</div>
+<div class="tabbed-block">
+<div class="language-py highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-7-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-7-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-7-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-7-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-7-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-7-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-7-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-7-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-7-10">10</a></span>
+<span class="normal"><a href="#__codelineno-7-11">11</a></span>
+<span class="normal"><a href="#__codelineno-7-12">12</a></span>
+<span class="normal"><a href="#__codelineno-7-13">13</a></span>
+<span class="normal"><a href="#__codelineno-7-14">14</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">convertir</span><span class="p">(</span><span class="n">valeur</span><span class="p">,</span><span class="n">unite</span><span class="p">):</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2"></a>    <span class="k">if</span> <span class="n">unite</span> <span class="o">==</span> <span class="s2">&quot;g/cm3&quot;</span><span class="p">:</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3"></a>        <span class="k">return</span> <span class="n">valeur</span><span class="o">*</span><span class="mi">1</span>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4"></a>    <span class="k">elif</span> <span class="n">unite</span> <span class="o">==</span> <span class="s2">&quot;kg/m3&quot;</span><span class="p">:</span>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5"></a>        <span class="k">return</span> <span class="n">valeur</span><span class="o">*</span><span class="mf">1e-3</span>
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6"></a>    <span class="k">elif</span> <span class="n">unite</span> <span class="o">==</span> <span class="s2">&quot;kg/dm3&quot;</span><span class="p">:</span>
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7"></a>        <span class="k">return</span> <span class="n">valeur</span><span class="o">*</span><span class="mi">1</span>
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8"></a>    <span class="k">else</span><span class="p">:</span>
+</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9"></a>        <span class="k">return</span> <span class="kc">None</span>
+</span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10"></a>
+</span><span id="__span-7-11"><a id="__codelineno-7-11" name="__codelineno-7-11"></a><span class="nb">print</span><span class="p">(</span><span class="n">convertir</span><span class="p">(</span><span class="mf">7.13</span><span class="p">,</span> <span class="s2">&quot;g/cm3&quot;</span><span class="p">))</span>
+</span><span id="__span-7-12"><a id="__codelineno-7-12" name="__codelineno-7-12"></a><span class="nb">print</span><span class="p">(</span><span class="n">convertir</span><span class="p">(</span><span class="mi">8960</span><span class="p">,</span> <span class="s2">&quot;kg/m3&quot;</span><span class="p">))</span>
+</span><span id="__span-7-13"><a id="__codelineno-7-13" name="__codelineno-7-13"></a><span class="nb">print</span><span class="p">(</span><span class="n">convertir</span><span class="p">(</span><span class="mf">7.87</span><span class="p">,</span> <span class="s2">&quot;kg/dm3&quot;</span><span class="p">))</span>  
+</span><span id="__span-7-14"><a id="__codelineno-7-14" name="__codelineno-7-14"></a><span class="nb">print</span><span class="p">(</span><span class="n">convertir</span><span class="p">(</span><span class="mf">3.5</span><span class="p">,</span> <span class="s2">&quot;mg/dm3&quot;</span><span class="p">))</span>
+</span></code></pre></div></td></tr></table></div>
 </div>
 </div>
 </div>
@@ -1359,8 +1404,8 @@ Voici le relevé : <br />
 θ<sub>f,eau</sub> = 0 °C ; θ<sub>f,ethanol</sub> = -114 °C ; θ<sub>f,cyclohexane</sub> = 6,5 °C ; θ<sub>f,ether</sub> = -116 °C ; θ<sub>f,pentan−3−ol</sub> = -8°C ;
 θ<sub>f,benzene</sub> = 5,5 °C ; θ<sub>f,methanamide</sub> = 2,5 °C.</p>
 <ol>
-<li>Ecrire un programme traçant l'évolution de la température du liquide en fonction du temps et 
-d'identifier le liquide à partir de la valeur du palier</li>
+<li>Ecrire un programme traçant l'évolution de la température du liquide en fonction du temps et identifier le liquide 
+correspondant.</li>
 </ol>
 </div>
 </div>
