@@ -1393,7 +1393,7 @@ et celle du fer ρ<sub>fer</sub> = 7,87 kg·dm<sup>-3</sup>. On donne la masse v
 </details>
 <details class="example">
 <summary>Exercice 1.1.8 : Température de fusion <img alt="🔴" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f534.svg" title=":red_circle:" /></summary>
-<div class="tabbed-set tabbed-alternate" data-tabs="9:1"><input checked="checked" id="__tabbed_9_1" name="__tabbed_9" type="radio" /><div class="tabbed-labels"><label for="__tabbed_9_1">Enoncé</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="9:2"><input checked="checked" id="__tabbed_9_1" name="__tabbed_9" type="radio" /><input id="__tabbed_9_2" name="__tabbed_9" type="radio" /><div class="tabbed-labels"><label for="__tabbed_9_1">Enoncé</label><label for="__tabbed_9_2">Solution</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>On mesure au cours du temps la température d'un liquide X dans un cristallisoir contenant un mélange réfrigérant.<br />
@@ -1408,12 +1408,52 @@ Voici le relevé : <br />
 correspondant.</li>
 </ol>
 </div>
+<div class="tabbed-block">
+<div class="language-py highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-8-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-8-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-8-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-8-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-8-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-8-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-8-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-8-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-8-10">10</a></span>
+<span class="normal"><a href="#__codelineno-8-11">11</a></span>
+<span class="normal"><a href="#__codelineno-8-12">12</a></span>
+<span class="normal"><a href="#__codelineno-8-13">13</a></span>
+<span class="normal"><a href="#__codelineno-8-14">14</a></span>
+<span class="normal"><a href="#__codelineno-8-15">15</a></span>
+<span class="normal"><a href="#__codelineno-8-16">16</a></span>
+<span class="normal"><a href="#__codelineno-8-17">17</a></span>
+<span class="normal"><a href="#__codelineno-8-18">18</a></span>
+<span class="normal"><a href="#__codelineno-8-19">19</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3"></a>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4"></a><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.ticker</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">ticker</span>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5"></a>
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6"></a><span class="n">temps</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">13</span><span class="p">,</span><span class="mi">14</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="mi">16</span><span class="p">,</span><span class="mi">17</span><span class="p">,</span><span class="mi">18</span><span class="p">,</span><span class="mi">19</span><span class="p">])</span>
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7"></a><span class="n">temperature</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">18</span><span class="p">,</span><span class="mi">16</span><span class="p">,</span><span class="mi">14</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mf">6.5</span><span class="p">,</span><span class="mf">6.5</span><span class="p">,</span><span class="mf">6.5</span><span class="p">,</span><span class="mf">6.5</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span><span class="o">-</span><span class="mi">4</span><span class="p">])</span>
+</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8"></a>
+</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9"></a><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+</span><span id="__span-8-10"><a id="__codelineno-8-10" name="__codelineno-8-10"></a><span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">temps</span><span class="p">,</span> <span class="n">temperature</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">s</span> <span class="o">=</span> <span class="mi">20</span><span class="p">)</span>
+</span><span id="__span-8-11"><a id="__codelineno-8-11" name="__codelineno-8-11"></a><span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Evolution de la température en fonction du temps&quot;</span><span class="p">)</span>
+</span><span id="__span-8-12"><a id="__codelineno-8-12" name="__codelineno-8-12"></a><span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Temps (en s)&quot;</span><span class="p">)</span>
+</span><span id="__span-8-13"><a id="__codelineno-8-13" name="__codelineno-8-13"></a><span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Température (en °C)&quot;</span><span class="p">)</span>
+</span><span id="__span-8-14"><a id="__codelineno-8-14" name="__codelineno-8-14"></a>
+</span><span id="__span-8-15"><a id="__codelineno-8-15" name="__codelineno-8-15"></a><span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_minor_locator</span><span class="p">(</span><span class="n">ticker</span><span class="o">.</span><span class="n">AutoMinorLocator</span><span class="p">())</span>
+</span><span id="__span-8-16"><a id="__codelineno-8-16" name="__codelineno-8-16"></a><span class="n">ax</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">set_minor_locator</span><span class="p">(</span><span class="n">ticker</span><span class="o">.</span><span class="n">AutoMinorLocator</span><span class="p">())</span>
+</span><span id="__span-8-17"><a id="__codelineno-8-17" name="__codelineno-8-17"></a>
+</span><span id="__span-8-18"><a id="__codelineno-8-18" name="__codelineno-8-18"></a><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span> <span class="c1">#Affiche la fenêtre</span>
+</span><span id="__span-8-19"><a id="__codelineno-8-19" name="__codelineno-8-19"></a><span class="c1"># Il s&#39;agit du cyclohexane avec 6.5°C</span>
+</span></code></pre></div></td></tr></table></div>
+</div>
 </div>
 </div>
 </details>
 <details class="example">
 <summary>Exercice 1.1.9 : Pourcentage volumique d'un gaz <img alt="🔵" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f535.svg" title=":blue_circle:" /></summary>
-<div class="tabbed-set tabbed-alternate" data-tabs="10:1"><input checked="checked" id="__tabbed_10_1" name="__tabbed_10" type="radio" /><div class="tabbed-labels"><label for="__tabbed_10_1">Enoncé</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="10:2"><input checked="checked" id="__tabbed_10_1" name="__tabbed_10" type="radio" /><input id="__tabbed_10_2" name="__tabbed_10" type="radio" /><div class="tabbed-labels"><label for="__tabbed_10_1">Enoncé</label><label for="__tabbed_10_2">Solution</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>Le trimix est un mélange de gaz utilisé pour la plongée. <br />
@@ -1429,12 +1469,30 @@ Masse volumique du gaz à pression atmosphérique :<br />
 <li>Ecrire un programme avec une boucle permettant de calculer le pourcentage en volume de chaque gaz dans le trimix.</li>
 </ol>
 </div>
+<div class="tabbed-block">
+<div class="language-py highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-1">1</a></span>
+<span class="normal"><a href="#__codelineno-9-2">2</a></span>
+<span class="normal"><a href="#__codelineno-9-3">3</a></span>
+<span class="normal"><a href="#__codelineno-9-4">4</a></span>
+<span class="normal"><a href="#__codelineno-9-5">5</a></span>
+<span class="normal"><a href="#__codelineno-9-6">6</a></span>
+<span class="normal"><a href="#__codelineno-9-7">7</a></span>
+<span class="normal"><a href="#__codelineno-9-8">8</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="n">bouteille</span> <span class="o">=</span> <span class="p">[[</span><span class="mf">3.3</span><span class="p">,</span><span class="mf">1.33</span><span class="p">],[</span><span class="mf">8.1</span><span class="p">,</span><span class="mf">1.17</span><span class="p">],[</span><span class="mf">0.600</span><span class="p">,</span><span class="mf">0.17</span><span class="p">]]</span> <span class="c1">#(en kg, en g.L-1)</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2"></a>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3"></a><span class="n">volume</span> <span class="o">=</span> <span class="p">[(</span><span class="n">gaz</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="mf">1e3</span><span class="p">)</span><span class="o">/</span><span class="n">gaz</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">gaz</span> <span class="ow">in</span> <span class="n">bouteille</span><span class="p">]</span>
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4"></a><span class="n">volume_total</span><span class="o">=</span><span class="nb">sum</span><span class="p">(</span><span class="n">volume</span><span class="p">)</span>
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5"></a>
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Pourcentage volumique O2 : &quot;</span><span class="p">,</span><span class="n">volume</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">/</span><span class="n">volume_total</span><span class="o">*</span><span class="mi">100</span><span class="p">)</span>
+</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Pourcentage volumique N2 : &quot;</span><span class="p">,</span><span class="n">volume</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">/</span><span class="n">volume_total</span><span class="o">*</span><span class="mi">100</span><span class="p">)</span>
+</span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Pourcentage volumique He : &quot;</span><span class="p">,</span><span class="n">volume</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">/</span><span class="n">volume_total</span><span class="o">*</span><span class="mi">100</span><span class="p">)</span>
+</span></code></pre></div></td></tr></table></div>
+</div>
 </div>
 </div>
 </details>
 <details class="example">
 <summary>Exercice 1.1.10 : Etat physique des espèces chimiques <img alt="🔵" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f535.svg" title=":blue_circle:" /></summary>
-<div class="tabbed-set tabbed-alternate" data-tabs="11:1"><input checked="checked" id="__tabbed_11_1" name="__tabbed_11" type="radio" /><div class="tabbed-labels"><label for="__tabbed_11_1">Enoncé</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="11:2"><input checked="checked" id="__tabbed_11_1" name="__tabbed_11" type="radio" /><input id="__tabbed_11_2" name="__tabbed_11" type="radio" /><div class="tabbed-labels"><label for="__tabbed_11_1">Enoncé</label><label for="__tabbed_11_2">Solution</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <table>
@@ -1483,12 +1541,48 @@ Masse volumique du gaz à pression atmosphérique :<br />
 se trouve à 20°C et à 120°C.</li>
 </ol>
 </div>
+<div class="tabbed-block">
+<div class="language-py highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-10-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-10-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-10-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-10-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-10-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-10-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-10-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-10-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-10-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-10-10">10</a></span>
+<span class="normal"><a href="#__codelineno-10-11">11</a></span>
+<span class="normal"><a href="#__codelineno-10-12">12</a></span>
+<span class="normal"><a href="#__codelineno-10-13">13</a></span>
+<span class="normal"><a href="#__codelineno-10-14">14</a></span>
+<span class="normal"><a href="#__codelineno-10-15">15</a></span>
+<span class="normal"><a href="#__codelineno-10-16">16</a></span>
+<span class="normal"><a href="#__codelineno-10-17">17</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="n">espece</span> <span class="o">=</span> <span class="p">[(</span><span class="s2">&quot;Cyclohexane&quot;</span><span class="p">,</span><span class="mf">6.5</span><span class="p">,</span><span class="mi">81</span><span class="p">),(</span><span class="s2">&quot;Eau&quot;</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">100</span><span class="p">),(</span><span class="s2">&quot;Ethanol&quot;</span><span class="p">,</span><span class="o">-</span><span class="mi">114</span><span class="p">,</span><span class="mi">79</span><span class="p">),(</span><span class="s2">&quot;Méthane&quot;</span><span class="p">,</span><span class="o">-</span><span class="mf">182.5</span><span class="p">,</span><span class="o">-</span><span class="mf">161.5</span><span class="p">),</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2"></a>        <span class="p">(</span><span class="s2">&quot;Acétone&quot;</span><span class="p">,</span><span class="o">-</span><span class="mf">94.6</span><span class="p">,</span><span class="mi">56</span><span class="p">),(</span><span class="s2">&quot;Sel&quot;</span><span class="p">,</span><span class="mi">801</span><span class="p">,</span><span class="mi">1465</span><span class="p">)]</span>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3"></a>
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4"></a><span class="n">temperature</span> <span class="o">=</span> <span class="mi">20</span> <span class="c1">#en °C</span>
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5"></a>
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6"></a><span class="k">for</span> <span class="n">esp</span> <span class="ow">in</span> <span class="n">espece</span><span class="p">:</span>
+</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7"></a>    <span class="n">nom</span> <span class="o">=</span> <span class="n">esp</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8"></a>    <span class="n">fu</span> <span class="o">=</span> <span class="n">esp</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+</span><span id="__span-10-9"><a id="__codelineno-10-9" name="__codelineno-10-9"></a>    <span class="n">eb</span> <span class="o">=</span> <span class="n">esp</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+</span><span id="__span-10-10"><a id="__codelineno-10-10" name="__codelineno-10-10"></a>    <span class="k">if</span> <span class="n">temperature</span><span class="o">&lt;</span><span class="n">fu</span><span class="p">:</span>
+</span><span id="__span-10-11"><a id="__codelineno-10-11" name="__codelineno-10-11"></a>        <span class="n">etat</span><span class="o">=</span><span class="s2">&quot;solide&quot;</span>
+</span><span id="__span-10-12"><a id="__codelineno-10-12" name="__codelineno-10-12"></a>    <span class="k">elif</span> <span class="p">(</span><span class="n">temperature</span><span class="o">&gt;</span><span class="n">fu</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">temperature</span><span class="o">&lt;</span><span class="n">eb</span><span class="p">):</span>
+</span><span id="__span-10-13"><a id="__codelineno-10-13" name="__codelineno-10-13"></a>        <span class="n">etat</span><span class="o">=</span><span class="s2">&quot;liquide&quot;</span>
+</span><span id="__span-10-14"><a id="__codelineno-10-14" name="__codelineno-10-14"></a>    <span class="k">elif</span> <span class="n">temperature</span><span class="o">&gt;</span><span class="n">eb</span><span class="p">:</span>
+</span><span id="__span-10-15"><a id="__codelineno-10-15" name="__codelineno-10-15"></a>        <span class="n">etat</span><span class="o">=</span><span class="s2">&quot;gazeux&quot;</span>
+</span><span id="__span-10-16"><a id="__codelineno-10-16" name="__codelineno-10-16"></a>
+</span><span id="__span-10-17"><a id="__codelineno-10-17" name="__codelineno-10-17"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2"> est dans l&#39;état </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">nom</span><span class="p">,</span><span class="n">etat</span><span class="p">))</span>
+</span></code></pre></div></td></tr></table></div>
+</div>
 </div>
 </div>
 </details>
 <details class="example">
 <summary>Exercice 1.1.11 : Masse, Volume, Masse volumique et Densité <img alt="🔴" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f534.svg" title=":red_circle:" /></summary>
-<div class="tabbed-set tabbed-alternate" data-tabs="12:1"><input checked="checked" id="__tabbed_12_1" name="__tabbed_12" type="radio" /><div class="tabbed-labels"><label for="__tabbed_12_1">Enoncé</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="12:2"><input checked="checked" id="__tabbed_12_1" name="__tabbed_12" type="radio" /><input id="__tabbed_12_2" name="__tabbed_12" type="radio" /><div class="tabbed-labels"><label for="__tabbed_12_1">Enoncé</label><label for="__tabbed_12_2">Solution</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <table>
@@ -1528,18 +1622,79 @@ se trouve à 20°C et à 120°C.</li>
 </tbody>
 </table>
 <ol>
-<li>Compléter les valeurs manquantes du tableau ci-dessus en écrivant un programme qui permet à un utilisateur 
-de calculer une masse, un volume, une masse volumique ou une densité. Le programme demande à l'utilisateur de 
-choisir ce qu'il veut calculer, puis à partir de quelles grandeurs physiques, puis il entre les deux valeurs et 
-le script affiche alors le résultat.</li>
+<li>Ecrire un programme avec une fonction permettant de calculer automatiquement les valeurs manquantes du tableau à partir
+de 2 valeurs d'entrées. Par exemple si je donne la valeur de la masse et celle du volume, le programme me calculera la masse volumique
+et la densité.</li>
 </ol>
+</div>
+<div class="tabbed-block">
+<div class="language-py highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-11-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-11-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-11-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-11-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-11-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-11-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-11-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-11-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-11-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-11-10">10</a></span>
+<span class="normal"><a href="#__codelineno-11-11">11</a></span>
+<span class="normal"><a href="#__codelineno-11-12">12</a></span>
+<span class="normal"><a href="#__codelineno-11-13">13</a></span>
+<span class="normal"><a href="#__codelineno-11-14">14</a></span>
+<span class="normal"><a href="#__codelineno-11-15">15</a></span>
+<span class="normal"><a href="#__codelineno-11-16">16</a></span>
+<span class="normal"><a href="#__codelineno-11-17">17</a></span>
+<span class="normal"><a href="#__codelineno-11-18">18</a></span>
+<span class="normal"><a href="#__codelineno-11-19">19</a></span>
+<span class="normal"><a href="#__codelineno-11-20">20</a></span>
+<span class="normal"><a href="#__codelineno-11-21">21</a></span>
+<span class="normal"><a href="#__codelineno-11-22">22</a></span>
+<span class="normal"><a href="#__codelineno-11-23">23</a></span>
+<span class="normal"><a href="#__codelineno-11-24">24</a></span>
+<span class="normal"><a href="#__codelineno-11-25">25</a></span>
+<span class="normal"><a href="#__codelineno-11-26">26</a></span>
+<span class="normal"><a href="#__codelineno-11-27">27</a></span>
+<span class="normal"><a href="#__codelineno-11-28">28</a></span>
+<span class="normal"><a href="#__codelineno-11-29">29</a></span>
+<span class="normal"><a href="#__codelineno-11-30">30</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">calculatrice</span> <span class="p">(</span><span class="n">masse</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">volume</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">masse_volumique</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">densite</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2"></a>    <span class="k">if</span> <span class="n">masse</span><span class="o">==</span><span class="kc">None</span> <span class="ow">and</span> <span class="n">volume</span><span class="o">!=</span><span class="kc">None</span> <span class="ow">and</span> <span class="n">masse_volumique</span><span class="o">!=</span><span class="kc">None</span><span class="p">:</span> <span class="c1">#volume et masse volumique----&gt; masse</span>
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3"></a>        <span class="n">m</span><span class="o">=</span><span class="n">volume</span><span class="o">/</span><span class="mi">1000</span><span class="o">*</span><span class="n">masse_volumique</span>
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4"></a>        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;la masse vaut : &quot;</span><span class="p">,</span><span class="n">m</span><span class="p">,</span><span class="s2">&quot; g&quot;</span><span class="p">)</span>
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5"></a>    <span class="k">if</span> <span class="n">masse</span><span class="o">==</span><span class="kc">None</span> <span class="ow">and</span> <span class="n">volume</span><span class="o">!=</span><span class="kc">None</span> <span class="ow">and</span> <span class="n">densite</span><span class="o">!=</span><span class="kc">None</span><span class="p">:</span> <span class="c1">#densite et volume---&gt;masse</span>
+</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6"></a>        <span class="n">m</span><span class="o">=</span><span class="n">densite</span><span class="o">*</span><span class="mi">1000</span><span class="o">*</span><span class="n">volume</span>
+</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7"></a>        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;la masse vaut : &quot;</span><span class="p">,</span><span class="n">m</span><span class="p">,</span><span class="s2">&quot; g&quot;</span><span class="p">)</span>
+</span><span id="__span-11-8"><a id="__codelineno-11-8" name="__codelineno-11-8"></a>    <span class="k">if</span> <span class="n">masse</span><span class="o">!=</span><span class="kc">None</span> <span class="ow">and</span> <span class="n">volume</span><span class="o">==</span><span class="kc">None</span> <span class="ow">and</span> <span class="n">masse_volumique</span><span class="o">!=</span><span class="kc">None</span><span class="p">:</span> <span class="c1">#masse et masse_volumique ---&gt; volume</span>
+</span><span id="__span-11-9"><a id="__codelineno-11-9" name="__codelineno-11-9"></a>        <span class="n">v</span><span class="o">=</span><span class="n">masse</span><span class="o">/</span><span class="n">masse_volumique</span>
+</span><span id="__span-11-10"><a id="__codelineno-11-10" name="__codelineno-11-10"></a>        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;le volume vaut : &quot;</span><span class="p">,</span><span class="n">v</span><span class="p">,</span><span class="s2">&quot; L&quot;</span><span class="p">)</span>
+</span><span id="__span-11-11"><a id="__codelineno-11-11" name="__codelineno-11-11"></a>    <span class="k">if</span> <span class="n">masse</span><span class="o">!=</span><span class="kc">None</span> <span class="ow">and</span> <span class="n">volume</span><span class="o">==</span><span class="kc">None</span> <span class="ow">and</span> <span class="n">densite</span><span class="o">!=</span><span class="kc">None</span><span class="p">:</span> <span class="c1">#masse et densite ---&gt; volume</span>
+</span><span id="__span-11-12"><a id="__codelineno-11-12" name="__codelineno-11-12"></a>        <span class="n">v</span><span class="o">=</span><span class="n">masse</span><span class="o">/</span><span class="p">(</span><span class="n">densite</span><span class="o">*</span><span class="mi">1000</span><span class="p">)</span>
+</span><span id="__span-11-13"><a id="__codelineno-11-13" name="__codelineno-11-13"></a>        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;le volume vaut : &quot;</span><span class="p">,</span><span class="n">v</span><span class="p">,</span><span class="s2">&quot; L&quot;</span><span class="p">)</span>
+</span><span id="__span-11-14"><a id="__codelineno-11-14" name="__codelineno-11-14"></a>    <span class="k">if</span> <span class="n">masse</span><span class="o">!=</span><span class="kc">None</span> <span class="ow">and</span> <span class="n">volume</span><span class="o">!=</span><span class="kc">None</span> <span class="ow">and</span> <span class="n">masse_volumique</span><span class="o">==</span><span class="kc">None</span><span class="p">:</span> <span class="c1">#masse et volume ---&gt; masse volumique</span>
+</span><span id="__span-11-15"><a id="__codelineno-11-15" name="__codelineno-11-15"></a>        <span class="n">m_v</span><span class="o">=</span><span class="n">masse</span><span class="o">/</span><span class="n">volume</span><span class="o">*</span><span class="mi">1000</span>
+</span><span id="__span-11-16"><a id="__codelineno-11-16" name="__codelineno-11-16"></a>        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;la masse volumique vaut : &quot;</span><span class="p">,</span><span class="n">m_v</span><span class="p">,</span><span class="s2">&quot; g/L&quot;</span><span class="p">)</span>
+</span><span id="__span-11-17"><a id="__codelineno-11-17" name="__codelineno-11-17"></a>    <span class="k">if</span> <span class="n">masse_volumique</span><span class="o">==</span><span class="kc">None</span> <span class="ow">and</span> <span class="n">densite</span> <span class="o">!=</span><span class="kc">None</span><span class="p">:</span> <span class="c1">#densite ---&gt; masse volumique</span>
+</span><span id="__span-11-18"><a id="__codelineno-11-18" name="__codelineno-11-18"></a>        <span class="n">m_v</span><span class="o">=</span><span class="n">densite</span><span class="o">*</span><span class="mi">1000</span>
+</span><span id="__span-11-19"><a id="__codelineno-11-19" name="__codelineno-11-19"></a>        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;la masse volumique vaut : &quot;</span><span class="p">,</span><span class="n">m_v</span><span class="p">,</span><span class="s2">&quot; g/L&quot;</span><span class="p">)</span>
+</span><span id="__span-11-20"><a id="__codelineno-11-20" name="__codelineno-11-20"></a>    <span class="k">if</span> <span class="n">masse_volumique</span><span class="o">!=</span><span class="kc">None</span> <span class="ow">and</span> <span class="n">densite</span><span class="o">==</span><span class="kc">None</span><span class="p">:</span> <span class="c1">#masse volumique ---&gt; densite</span>
+</span><span id="__span-11-21"><a id="__codelineno-11-21" name="__codelineno-11-21"></a>        <span class="n">d</span><span class="o">=</span><span class="n">masse_volumique</span><span class="o">/</span><span class="mi">1000</span>
+</span><span id="__span-11-22"><a id="__codelineno-11-22" name="__codelineno-11-22"></a>        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;la densité vaut : &quot;</span><span class="p">,</span><span class="n">d</span><span class="p">)</span>
+</span><span id="__span-11-23"><a id="__codelineno-11-23" name="__codelineno-11-23"></a>    <span class="k">if</span> <span class="n">masse</span><span class="o">!=</span><span class="kc">None</span> <span class="ow">and</span> <span class="n">volume</span><span class="o">!=</span><span class="kc">None</span> <span class="ow">and</span> <span class="n">densite</span><span class="o">==</span><span class="kc">None</span><span class="p">:</span> <span class="c1">#masse et volume ---&gt;densite</span>
+</span><span id="__span-11-24"><a id="__codelineno-11-24" name="__codelineno-11-24"></a>        <span class="n">d</span><span class="o">=</span><span class="n">masse</span><span class="o">/</span><span class="n">volume</span>
+</span><span id="__span-11-25"><a id="__codelineno-11-25" name="__codelineno-11-25"></a>        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;la densité vaut : &quot;</span><span class="p">,</span><span class="n">d</span><span class="p">)</span>
+</span><span id="__span-11-26"><a id="__codelineno-11-26" name="__codelineno-11-26"></a>
+</span><span id="__span-11-27"><a id="__codelineno-11-27" name="__codelineno-11-27"></a><span class="n">calculatrice</span><span class="p">(</span><span class="n">masse</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">volume</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+</span><span id="__span-11-28"><a id="__codelineno-11-28" name="__codelineno-11-28"></a><span class="n">calculatrice</span><span class="p">(</span><span class="n">masse</span><span class="o">=</span><span class="mf">39.5</span><span class="p">,</span> <span class="n">volume</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+</span><span id="__span-11-29"><a id="__codelineno-11-29" name="__codelineno-11-29"></a><span class="n">calculatrice</span><span class="p">(</span><span class="n">masse</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span> <span class="n">densite</span><span class="o">=</span><span class="mf">0.71</span><span class="p">)</span>
+</span><span id="__span-11-30"><a id="__codelineno-11-30" name="__codelineno-11-30"></a><span class="n">calculatrice</span><span class="p">(</span><span class="n">masse</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span> <span class="n">masse_volumique</span><span class="o">=</span><span class="mi">1025</span><span class="p">)</span>
+</span></code></pre></div></td></tr></table></div>
 </div>
 </div>
 </div>
 </details>
 <details class="example">
 <summary>Exercice 1.1.12 : Solubilité <img alt="🔵" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f535.svg" title=":blue_circle:" /></summary>
-<div class="tabbed-set tabbed-alternate" data-tabs="13:1"><input checked="checked" id="__tabbed_13_1" name="__tabbed_13" type="radio" /><div class="tabbed-labels"><label for="__tabbed_13_1">Enoncé</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="13:2"><input checked="checked" id="__tabbed_13_1" name="__tabbed_13" type="radio" /><input id="__tabbed_13_2" name="__tabbed_13" type="radio" /><div class="tabbed-labels"><label for="__tabbed_13_1">Enoncé</label><label for="__tabbed_13_2">Solution</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>La solubilité dans l'eau à 20°C du diode vaut 330 mg·L<sup>-1</sup> et celle de l'iodure de potassium vaut 1430 g·L<sup>-1</sup>.</p>
@@ -1548,12 +1703,30 @@ le script affiche alors le résultat.</li>
 dissout dans 25 mL d'eau.</li>
 </ol>
 </div>
+<div class="tabbed-block">
+<div class="language-py highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-12-1">1</a></span>
+<span class="normal"><a href="#__codelineno-12-2">2</a></span>
+<span class="normal"><a href="#__codelineno-12-3">3</a></span>
+<span class="normal"><a href="#__codelineno-12-4">4</a></span>
+<span class="normal"><a href="#__codelineno-12-5">5</a></span>
+<span class="normal"><a href="#__codelineno-12-6">6</a></span>
+<span class="normal"><a href="#__codelineno-12-7">7</a></span>
+<span class="normal"><a href="#__codelineno-12-8">8</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">masse</span><span class="p">(</span><span class="n">solubilite</span><span class="p">,</span><span class="n">volume</span><span class="p">):</span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2"></a>    <span class="k">return</span> <span class="n">solubilite</span><span class="o">*</span><span class="n">volume</span>
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3"></a>
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4"></a><span class="n">masse_max1</span><span class="o">=</span><span class="n">masse</span><span class="p">(</span><span class="mf">0.330</span><span class="p">,</span><span class="mf">25e-3</span><span class="p">)</span>
+</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;la masse maximale de diiode vaut </span><span class="si">{:.2g}</span><span class="s2"> g&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">masse_max1</span><span class="p">))</span>
+</span><span id="__span-12-6"><a id="__codelineno-12-6" name="__codelineno-12-6"></a>
+</span><span id="__span-12-7"><a id="__codelineno-12-7" name="__codelineno-12-7"></a><span class="n">masse_max2</span><span class="o">=</span><span class="n">masse</span><span class="p">(</span><span class="mi">1430</span><span class="p">,</span><span class="mf">25e-3</span><span class="p">)</span>
+</span><span id="__span-12-8"><a id="__codelineno-12-8" name="__codelineno-12-8"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;la masse maximale de diiode vaut </span><span class="si">{:.2g}</span><span class="s2"> g&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">masse_max2</span><span class="p">))</span>
+</span></code></pre></div></td></tr></table></div>
+</div>
 </div>
 </div>
 </details>
 <details class="example">
-<summary>Exercice 1.1.13 : Masse volumique d'un euro <img alt="🟢" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f7e2.svg" title=":green_circle:" /></summary>
-<div class="tabbed-set tabbed-alternate" data-tabs="14:1"><input checked="checked" id="__tabbed_14_1" name="__tabbed_14" type="radio" /><div class="tabbed-labels"><label for="__tabbed_14_1">Enoncé</label></div>
+<summary>Exercice 1.1.13 : Masse volumique d'un euro <img alt="🔵" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f535.svg" title=":blue_circle:" /></summary>
+<div class="tabbed-set tabbed-alternate" data-tabs="14:2"><input checked="checked" id="__tabbed_14_1" name="__tabbed_14" type="radio" /><input id="__tabbed_14_2" name="__tabbed_14" type="radio" /><div class="tabbed-labels"><label for="__tabbed_14_1">Enoncé</label><label for="__tabbed_14_2">Solution</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>La pièce d'un euro est constituée d'un disque central de 3,80 g dans un alliage de cupro-nickel 
@@ -1570,6 +1743,72 @@ Volume d'un cylindre de rayon R et de hauteur h : V = πR<sup>2</sup>h</p>
 </ul>
 </li>
 </ol>
+</div>
+<div class="tabbed-block">
+<div class="language-py highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-13-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-13-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-13-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-13-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-13-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-13-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-13-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-13-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-13-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-13-10">10</a></span>
+<span class="normal"><a href="#__codelineno-13-11">11</a></span>
+<span class="normal"><a href="#__codelineno-13-12">12</a></span>
+<span class="normal"><a href="#__codelineno-13-13">13</a></span>
+<span class="normal"><a href="#__codelineno-13-14">14</a></span>
+<span class="normal"><a href="#__codelineno-13-15">15</a></span>
+<span class="normal"><a href="#__codelineno-13-16">16</a></span>
+<span class="normal"><a href="#__codelineno-13-17">17</a></span>
+<span class="normal"><a href="#__codelineno-13-18">18</a></span>
+<span class="normal"><a href="#__codelineno-13-19">19</a></span>
+<span class="normal"><a href="#__codelineno-13-20">20</a></span>
+<span class="normal"><a href="#__codelineno-13-21">21</a></span>
+<span class="normal"><a href="#__codelineno-13-22">22</a></span>
+<span class="normal"><a href="#__codelineno-13-23">23</a></span>
+<span class="normal"><a href="#__codelineno-13-24">24</a></span>
+<span class="normal"><a href="#__codelineno-13-25">25</a></span>
+<span class="normal"><a href="#__codelineno-13-26">26</a></span>
+<span class="normal"><a href="#__codelineno-13-27">27</a></span>
+<span class="normal"><a href="#__codelineno-13-28">28</a></span>
+<span class="normal"><a href="#__codelineno-13-29">29</a></span>
+<span class="normal"><a href="#__codelineno-13-30">30</a></span>
+<span class="normal"><a href="#__codelineno-13-31">31</a></span>
+<span class="normal"><a href="#__codelineno-13-32">32</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2"></a>
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3"></a><span class="c1">#-----Calcul de la masse volumique du disque central-----#</span>
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4"></a><span class="n">masse_disque_central</span> <span class="o">=</span> <span class="mf">3.80</span> <span class="c1"># g</span>
+</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5"></a><span class="n">masse_volumique_cuivre</span> <span class="o">=</span> <span class="mf">9.0</span> <span class="c1">#g·cm-3</span>
+</span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6"></a><span class="n">masse_volumique_nickel</span> <span class="o">=</span> <span class="mf">8.9</span> <span class="c1">#g·cm-3</span>
+</span><span id="__span-13-7"><a id="__codelineno-13-7" name="__codelineno-13-7"></a>
+</span><span id="__span-13-8"><a id="__codelineno-13-8" name="__codelineno-13-8"></a><span class="n">masse_cuivre</span><span class="o">=</span><span class="n">masse_disque_central</span><span class="o">*</span><span class="mi">75</span><span class="o">/</span><span class="mi">100</span> <span class="c1">#g</span>
+</span><span id="__span-13-9"><a id="__codelineno-13-9" name="__codelineno-13-9"></a><span class="n">masse_nickel</span><span class="o">=</span><span class="n">masse_disque_central</span><span class="o">*</span><span class="mi">25</span><span class="o">/</span><span class="mi">100</span> <span class="c1">#g</span>
+</span><span id="__span-13-10"><a id="__codelineno-13-10" name="__codelineno-13-10"></a>
+</span><span id="__span-13-11"><a id="__codelineno-13-11" name="__codelineno-13-11"></a><span class="n">volume_cuivre</span><span class="o">=</span><span class="n">masse_cuivre</span><span class="o">/</span><span class="n">masse_volumique_cuivre</span> <span class="c1">#en cm3</span>
+</span><span id="__span-13-12"><a id="__codelineno-13-12" name="__codelineno-13-12"></a><span class="n">volume_nickel</span><span class="o">=</span><span class="n">masse_nickel</span><span class="o">/</span><span class="n">masse_volumique_nickel</span> <span class="c1">#en cm3</span>
+</span><span id="__span-13-13"><a id="__codelineno-13-13" name="__codelineno-13-13"></a><span class="n">volume_disque_central</span><span class="o">=</span><span class="n">volume_cuivre</span><span class="o">+</span><span class="n">volume_nickel</span> <span class="c1">#en cm3</span>
+</span><span id="__span-13-14"><a id="__codelineno-13-14" name="__codelineno-13-14"></a>
+</span><span id="__span-13-15"><a id="__codelineno-13-15" name="__codelineno-13-15"></a><span class="n">masse_volumique_disque_central</span><span class="o">=</span><span class="n">masse_disque_central</span><span class="o">/</span><span class="n">volume_disque_central</span> <span class="c1">#g/cm3</span>
+</span><span id="__span-13-16"><a id="__codelineno-13-16" name="__codelineno-13-16"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;la masse volumique du disque central vaut </span><span class="si">{:.2g}</span><span class="s2"> g/cm3&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">masse_volumique_disque_central</span><span class="p">))</span>
+</span><span id="__span-13-17"><a id="__codelineno-13-17" name="__codelineno-13-17"></a>
+</span><span id="__span-13-18"><a id="__codelineno-13-18" name="__codelineno-13-18"></a><span class="c1">#-----Calcul du rayon du disque central-----#</span>
+</span><span id="__span-13-19"><a id="__codelineno-13-19" name="__codelineno-13-19"></a><span class="n">h</span><span class="o">=</span><span class="mf">2.125</span> <span class="c1">#mm</span>
+</span><span id="__span-13-20"><a id="__codelineno-13-20" name="__codelineno-13-20"></a><span class="n">rayon_disque_central</span><span class="o">=</span><span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">volume_disque_central</span><span class="o">/</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">h</span><span class="o">*</span><span class="mf">1e-1</span><span class="p">))</span> <span class="c1">#cm</span>
+</span><span id="__span-13-21"><a id="__codelineno-13-21" name="__codelineno-13-21"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;le rayon du disque central vaut </span><span class="si">{:.2g}</span><span class="s2"> cm&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">rayon_disque_central</span><span class="p">))</span>
+</span><span id="__span-13-22"><a id="__codelineno-13-22" name="__codelineno-13-22"></a>
+</span><span id="__span-13-23"><a id="__codelineno-13-23" name="__codelineno-13-23"></a><span class="c1">#-----Calcul de la masse volumique du maillechort-----#</span>
+</span><span id="__span-13-24"><a id="__codelineno-13-24" name="__codelineno-13-24"></a><span class="n">masse_total_piece</span><span class="o">=</span><span class="mf">7.50</span> <span class="c1">#g</span>
+</span><span id="__span-13-25"><a id="__codelineno-13-25" name="__codelineno-13-25"></a><span class="n">masse_maillechort</span><span class="o">=</span><span class="n">masse_total_piece</span> <span class="o">-</span> <span class="n">masse_disque_central</span>
+</span><span id="__span-13-26"><a id="__codelineno-13-26" name="__codelineno-13-26"></a>
+</span><span id="__span-13-27"><a id="__codelineno-13-27" name="__codelineno-13-27"></a><span class="n">diametre_piece</span><span class="o">=</span><span class="mf">23.25</span> <span class="c1">#mm</span>
+</span><span id="__span-13-28"><a id="__codelineno-13-28" name="__codelineno-13-28"></a><span class="n">volume_total_piece</span><span class="o">=</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="p">(</span><span class="n">diametre_piece</span><span class="o">/</span><span class="mi">2</span><span class="o">*</span><span class="mf">1e-1</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="n">h</span><span class="o">*</span><span class="mf">1e-1</span> <span class="c1">#cm3</span>
+</span><span id="__span-13-29"><a id="__codelineno-13-29" name="__codelineno-13-29"></a><span class="n">volume_maillechort</span> <span class="o">=</span> <span class="n">volume_total_piece</span><span class="o">-</span><span class="n">volume_disque_central</span>
+</span><span id="__span-13-30"><a id="__codelineno-13-30" name="__codelineno-13-30"></a>
+</span><span id="__span-13-31"><a id="__codelineno-13-31" name="__codelineno-13-31"></a><span class="n">masse_volumique_maillechort</span><span class="o">=</span><span class="n">masse_maillechort</span><span class="o">/</span><span class="n">volume_maillechort</span>
+</span><span id="__span-13-32"><a id="__codelineno-13-32" name="__codelineno-13-32"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;la masse volumique du maillechort vaut </span><span class="si">{:.2g}</span><span class="s2"> g/cm3&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">masse_volumique_maillechort</span><span class="p">))</span>
+</span></code></pre></div></td></tr></table></div>
 </div>
 </div>
 </div>
