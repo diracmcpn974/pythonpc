@@ -3648,7 +3648,7 @@ Voici les mesures effectuées <a href="vitesse_son.txt">ici</a></li>
 </details>
 <details class="example">
 <summary>Activité expérimentale 6.1.2 : Etude d'une mélodie avec un instrument de musique <img alt="🔴" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f534.svg" title=":red_circle:" /></summary>
-<div class="tabbed-set tabbed-alternate" data-tabs="51:2"><input checked="checked" id="__tabbed_51_1" name="__tabbed_51" type="radio" /><input id="__tabbed_51_2" name="__tabbed_51" type="radio" /><div class="tabbed-labels"><label for="__tabbed_51_1">Contexte</label><label for="__tabbed_51_2">Enoncé</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="51:3"><input checked="checked" id="__tabbed_51_1" name="__tabbed_51" type="radio" /><input id="__tabbed_51_2" name="__tabbed_51" type="radio" /><input id="__tabbed_51_3" name="__tabbed_51" type="radio" /><div class="tabbed-labels"><label for="__tabbed_51_1">Contexte</label><label for="__tabbed_51_2">Enoncé</label><label for="__tabbed_51_3">Solution</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>Voici un fichier son de la mélodie au clair de la lune joué à la guitare à l'octave 3.</p>
@@ -3665,12 +3665,54 @@ La fréquence est alors calculée et la note correspondante est déduite.<br />
 Voici le fichier son au format .wav <a href="guitare_octave_3.wav">ici</a></li>
 </ol>
 </div>
+<div class="tabbed-block">
+<div class="language-py highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-50-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-50-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-50-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-50-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-50-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-50-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-50-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-50-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-50-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-50-10">10</a></span>
+<span class="normal"><a href="#__codelineno-50-11">11</a></span>
+<span class="normal"><a href="#__codelineno-50-12">12</a></span>
+<span class="normal"><a href="#__codelineno-50-13">13</a></span>
+<span class="normal"><a href="#__codelineno-50-14">14</a></span>
+<span class="normal"><a href="#__codelineno-50-15">15</a></span>
+<span class="normal"><a href="#__codelineno-50-16">16</a></span>
+<span class="normal"><a href="#__codelineno-50-17">17</a></span>
+<span class="normal"><a href="#__codelineno-50-18">18</a></span>
+<span class="normal"><a href="#__codelineno-50-19">19</a></span>
+<span class="normal"><a href="#__codelineno-50-20">20</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-50-1"><a id="__codelineno-50-1" name="__codelineno-50-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">scipy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">scp</span>
+</span><span id="__span-50-2"><a id="__codelineno-50-2" name="__codelineno-50-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+</span><span id="__span-50-3"><a id="__codelineno-50-3" name="__codelineno-50-3"></a><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+</span><span id="__span-50-4"><a id="__codelineno-50-4" name="__codelineno-50-4"></a>
+</span><span id="__span-50-5"><a id="__codelineno-50-5" name="__codelineno-50-5"></a><span class="n">rate</span><span class="p">,</span><span class="n">data</span><span class="o">=</span><span class="n">scp</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">wavfile</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s2">&quot;guitare_octave_3.wav&quot;</span><span class="p">)</span>
+</span><span id="__span-50-6"><a id="__codelineno-50-6" name="__codelineno-50-6"></a><span class="nb">print</span><span class="p">(</span><span class="n">rate</span><span class="p">)</span>
+</span><span id="__span-50-7"><a id="__codelineno-50-7" name="__codelineno-50-7"></a><span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</span><span id="__span-50-8"><a id="__codelineno-50-8" name="__codelineno-50-8"></a>
+</span><span id="__span-50-9"><a id="__codelineno-50-9" name="__codelineno-50-9"></a><span class="c1">#Paramètres importants</span>
+</span><span id="__span-50-10"><a id="__codelineno-50-10" name="__codelineno-50-10"></a><span class="n">n</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="c1">#Nombre total d&#39;échantillons du signal</span>
+</span><span id="__span-50-11"><a id="__codelineno-50-11" name="__codelineno-50-11"></a><span class="n">duree</span> <span class="o">=</span> <span class="n">n</span><span class="o">/</span><span class="n">rate</span> <span class="c1">#Nombre total d&#39;échantillons du signal divisé par le nombre d&#39;échantillons par s (Fe)</span>
+</span><span id="__span-50-12"><a id="__codelineno-50-12" name="__codelineno-50-12"></a>
+</span><span id="__span-50-13"><a id="__codelineno-50-13" name="__codelineno-50-13"></a><span class="n">canal_droite</span><span class="o">=</span><span class="n">data</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span>
+</span><span id="__span-50-14"><a id="__codelineno-50-14" name="__codelineno-50-14"></a>
+</span><span id="__span-50-15"><a id="__codelineno-50-15" name="__codelineno-50-15"></a><span class="n">t</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">duree</span><span class="p">,</span><span class="n">n</span><span class="p">)</span> <span class="c1">#instants t</span>
+</span><span id="__span-50-16"><a id="__codelineno-50-16" name="__codelineno-50-16"></a><span class="n">fig</span><span class="p">,</span><span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+</span><span id="__span-50-17"><a id="__codelineno-50-17" name="__codelineno-50-17"></a><span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">canal_droite</span><span class="p">)</span>
+</span><span id="__span-50-18"><a id="__codelineno-50-18" name="__codelineno-50-18"></a><span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Temps (en s)&quot;</span><span class="p">)</span>
+</span><span id="__span-50-19"><a id="__codelineno-50-19" name="__codelineno-50-19"></a><span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Valeurs entières 16 bits&quot;</span><span class="p">)</span>
+</span><span id="__span-50-20"><a id="__codelineno-50-20" name="__codelineno-50-20"></a><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</span></code></pre></div></td></tr></table></div>
+</div>
 </div>
 </div>
 </details>
 <details class="example">
 <summary>Exercice 6.1.1 : Période <img alt="🟢" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f7e2.svg" title=":green_circle:" /></summary>
-<div class="tabbed-set tabbed-alternate" data-tabs="52:1"><input checked="checked" id="__tabbed_52_1" name="__tabbed_52" type="radio" /><div class="tabbed-labels"><label for="__tabbed_52_1">Enoncé</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="52:2"><input checked="checked" id="__tabbed_52_1" name="__tabbed_52" type="radio" /><input id="__tabbed_52_2" name="__tabbed_52" type="radio" /><div class="tabbed-labels"><label for="__tabbed_52_1">Enoncé</label><label for="__tabbed_52_2">Solution</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>Un son périodique a pour fréquence 120 Hz.</p>
@@ -3678,26 +3720,54 @@ Voici le fichier son au format .wav <a href="guitare_octave_3.wav">ici</a></li>
 <li>Ecrire un programme permettant de calculer la période de ce signal.</li>
 </ol>
 </div>
+<div class="tabbed-block">
+<div class="language-py highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-51-1">1</a></span>
+<span class="normal"><a href="#__codelineno-51-2">2</a></span>
+<span class="normal"><a href="#__codelineno-51-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-51-1"><a id="__codelineno-51-1" name="__codelineno-51-1"></a><span class="n">f</span><span class="o">=</span><span class="mi">120</span> <span class="c1">#Hz</span>
+</span><span id="__span-51-2"><a id="__codelineno-51-2" name="__codelineno-51-2"></a><span class="n">T</span><span class="o">=</span><span class="mi">1</span><span class="o">/</span><span class="n">f</span>
+</span><span id="__span-51-3"><a id="__codelineno-51-3" name="__codelineno-51-3"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;La période vaut </span><span class="si">{:.3g}</span><span class="s2"> s&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">T</span><span class="p">))</span>
+</span></code></pre></div></td></tr></table></div>
+</div>
 </div>
 </div>
 </details>
 <details class="example">
 <summary>Exercice 6.1.2 : Fréquence <img alt="🔵" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f535.svg" title=":blue_circle:" /></summary>
-<div class="tabbed-set tabbed-alternate" data-tabs="53:1"><input checked="checked" id="__tabbed_53_1" name="__tabbed_53" type="radio" /><div class="tabbed-labels"><label for="__tabbed_53_1">Enoncé</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="53:2"><input checked="checked" id="__tabbed_53_1" name="__tabbed_53" type="radio" /><input id="__tabbed_53_2" name="__tabbed_53" type="radio" /><div class="tabbed-labels"><label for="__tabbed_53_1">Enoncé</label><label for="__tabbed_53_2">Solution</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>Trois signaux sonores ont pour période : T1 = 0.16 s ; T2 = 1.8 × 10<sup>-2</sup> ms ; T3 = 0.24 ms </p>
 <ol>
-<li>Ecrire un programme avec une boucle permettant de calculer la fréquence de ce signal et de préciser leurs domaines (ultrason,
+<li>Ecrire un programme avec une boucle permettant de calculer la fréquence de ces signaux et de préciser leurs domaines (ultrason,
 infrason et audible)</li>
 </ol>
+</div>
+<div class="tabbed-block">
+<div class="language-py highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-52-1">1</a></span>
+<span class="normal"><a href="#__codelineno-52-2">2</a></span>
+<span class="normal"><a href="#__codelineno-52-3">3</a></span>
+<span class="normal"><a href="#__codelineno-52-4">4</a></span>
+<span class="normal"><a href="#__codelineno-52-5">5</a></span>
+<span class="normal"><a href="#__codelineno-52-6">6</a></span>
+<span class="normal"><a href="#__codelineno-52-7">7</a></span>
+<span class="normal"><a href="#__codelineno-52-8">8</a></span>
+<span class="normal"><a href="#__codelineno-52-9">9</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-52-1"><a id="__codelineno-52-1" name="__codelineno-52-1"></a><span class="n">periode</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.16</span><span class="p">,</span><span class="mf">1.8e-2</span><span class="o">*</span><span class="mf">1e-3</span><span class="p">,</span><span class="mf">0.24e-3</span><span class="p">]</span> 
+</span><span id="__span-52-2"><a id="__codelineno-52-2" name="__codelineno-52-2"></a><span class="k">for</span> <span class="n">T</span> <span class="ow">in</span> <span class="n">periode</span><span class="p">:</span>
+</span><span id="__span-52-3"><a id="__codelineno-52-3" name="__codelineno-52-3"></a>    <span class="n">f</span><span class="o">=</span><span class="mi">1</span><span class="o">/</span><span class="n">T</span>
+</span><span id="__span-52-4"><a id="__codelineno-52-4" name="__codelineno-52-4"></a>    <span class="k">if</span> <span class="n">f</span><span class="o">&lt;</span><span class="mi">20</span><span class="p">:</span>
+</span><span id="__span-52-5"><a id="__codelineno-52-5" name="__codelineno-52-5"></a>        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Le signal de fréquence </span><span class="si">{:.2g}</span><span class="s2"> Hz appartient au domaine de l&#39;infrason&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">f</span><span class="p">))</span>
+</span><span id="__span-52-6"><a id="__codelineno-52-6" name="__codelineno-52-6"></a>    <span class="k">elif</span> <span class="n">f</span><span class="o">&gt;</span><span class="mi">20000</span><span class="p">:</span>
+</span><span id="__span-52-7"><a id="__codelineno-52-7" name="__codelineno-52-7"></a>        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Le signal de fréquence </span><span class="si">{:.2g}</span><span class="s2"> Hz appartient au domaine de l&#39;ultrason&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">f</span><span class="p">))</span>
+</span><span id="__span-52-8"><a id="__codelineno-52-8" name="__codelineno-52-8"></a>    <span class="k">else</span><span class="p">:</span>
+</span><span id="__span-52-9"><a id="__codelineno-52-9" name="__codelineno-52-9"></a>        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Le signal de fréquence </span><span class="si">{:.2g}</span><span class="s2"> Hz est audible&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">f</span><span class="p">))</span>
+</span></code></pre></div></td></tr></table></div>
 </div>
 </div>
 </div>
 </details>
 <details class="example">
 <summary>Exercice 6.1.3 : Durée de propagation <img alt="🟢" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f7e2.svg" title=":green_circle:" /></summary>
-<div class="tabbed-set tabbed-alternate" data-tabs="54:1"><input checked="checked" id="__tabbed_54_1" name="__tabbed_54" type="radio" /><div class="tabbed-labels"><label for="__tabbed_54_1">Enoncé</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="54:2"><input checked="checked" id="__tabbed_54_1" name="__tabbed_54" type="radio" /><input id="__tabbed_54_2" name="__tabbed_54" type="radio" /><div class="tabbed-labels"><label for="__tabbed_54_1">Enoncé</label><label for="__tabbed_54_2">Solution</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>On lance un caillou dans l'eau. Le son se propage dans l'eau mais aussi dans l'air pour atteindre la rive situé à 
@@ -3707,12 +3777,30 @@ Célérité du son :       dans l'air : v<sub>air</sub> = 340 m⋅s<sup>-1</sup>
 <li>Ecrire un programme permettant de calculer la durée de propagation dans les deux milieux pour atteindre la rive.</li>
 </ol>
 </div>
+<div class="tabbed-block">
+<div class="language-py highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-53-1">1</a></span>
+<span class="normal"><a href="#__codelineno-53-2">2</a></span>
+<span class="normal"><a href="#__codelineno-53-3">3</a></span>
+<span class="normal"><a href="#__codelineno-53-4">4</a></span>
+<span class="normal"><a href="#__codelineno-53-5">5</a></span>
+<span class="normal"><a href="#__codelineno-53-6">6</a></span>
+<span class="normal"><a href="#__codelineno-53-7">7</a></span>
+<span class="normal"><a href="#__codelineno-53-8">8</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-53-1"><a id="__codelineno-53-1" name="__codelineno-53-1"></a><span class="n">d</span> <span class="o">=</span> <span class="mi">154</span> <span class="c1">#m</span>
+</span><span id="__span-53-2"><a id="__codelineno-53-2" name="__codelineno-53-2"></a><span class="n">v_air</span> <span class="o">=</span> <span class="mi">340</span> <span class="c1">#m/s </span>
+</span><span id="__span-53-3"><a id="__codelineno-53-3" name="__codelineno-53-3"></a><span class="n">v_eau</span> <span class="o">=</span> <span class="mi">1500</span> <span class="c1">#m/s</span>
+</span><span id="__span-53-4"><a id="__codelineno-53-4" name="__codelineno-53-4"></a>
+</span><span id="__span-53-5"><a id="__codelineno-53-5" name="__codelineno-53-5"></a><span class="n">t_air</span><span class="o">=</span><span class="n">d</span><span class="o">/</span><span class="n">v_air</span>
+</span><span id="__span-53-6"><a id="__codelineno-53-6" name="__codelineno-53-6"></a><span class="n">t_eau</span><span class="o">=</span><span class="n">d</span><span class="o">/</span><span class="n">v_eau</span>
+</span><span id="__span-53-7"><a id="__codelineno-53-7" name="__codelineno-53-7"></a>
+</span><span id="__span-53-8"><a id="__codelineno-53-8" name="__codelineno-53-8"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;la durée de propagation dans l&#39;air est </span><span class="si">{:.3g}</span><span class="s2"> s et dans l&#39;eau est </span><span class="si">{:.3g}</span><span class="s2"> s&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">t_air</span><span class="p">,</span><span class="n">t_eau</span><span class="p">))</span>
+</span></code></pre></div></td></tr></table></div>
+</div>
 </div>
 </div>
 </details>
 <details class="example">
 <summary>Exercice 6.1.4 : Vitesse de propagation <img alt="🟢" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f7e2.svg" title=":green_circle:" /></summary>
-<div class="tabbed-set tabbed-alternate" data-tabs="55:1"><input checked="checked" id="__tabbed_55_1" name="__tabbed_55" type="radio" /><div class="tabbed-labels"><label for="__tabbed_55_1">Enoncé</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="55:2"><input checked="checked" id="__tabbed_55_1" name="__tabbed_55" type="radio" /><input id="__tabbed_55_2" name="__tabbed_55" type="radio" /><div class="tabbed-labels"><label for="__tabbed_55_1">Enoncé</label><label for="__tabbed_55_2">Solution</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>La durée nécessaire pour qu'un son parcourt la distance d = 140 m est Δt= 0,42 s dans l'air.</p>
@@ -3720,12 +3808,28 @@ Célérité du son :       dans l'air : v<sub>air</sub> = 340 m⋅s<sup>-1</sup>
 <li>Ecrire un programme permettant de calculer la vitesse de propagation (en m/s et en km/h)</li>
 </ol>
 </div>
+<div class="tabbed-block">
+<div class="language-py highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-54-1">1</a></span>
+<span class="normal"><a href="#__codelineno-54-2">2</a></span>
+<span class="normal"><a href="#__codelineno-54-3">3</a></span>
+<span class="normal"><a href="#__codelineno-54-4">4</a></span>
+<span class="normal"><a href="#__codelineno-54-5">5</a></span>
+<span class="normal"><a href="#__codelineno-54-6">6</a></span>
+<span class="normal"><a href="#__codelineno-54-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-54-1"><a id="__codelineno-54-1" name="__codelineno-54-1"></a><span class="n">d</span> <span class="o">=</span> <span class="mi">140</span> <span class="c1">#m</span>
+</span><span id="__span-54-2"><a id="__codelineno-54-2" name="__codelineno-54-2"></a><span class="n">t</span> <span class="o">=</span> <span class="mf">0.42</span> <span class="c1">#s</span>
+</span><span id="__span-54-3"><a id="__codelineno-54-3" name="__codelineno-54-3"></a>
+</span><span id="__span-54-4"><a id="__codelineno-54-4" name="__codelineno-54-4"></a><span class="n">v</span><span class="o">=</span><span class="n">d</span><span class="o">/</span><span class="n">t</span>
+</span><span id="__span-54-5"><a id="__codelineno-54-5" name="__codelineno-54-5"></a><span class="n">v1</span><span class="o">=</span><span class="n">v</span><span class="o">*</span><span class="mf">3.6</span>
+</span><span id="__span-54-6"><a id="__codelineno-54-6" name="__codelineno-54-6"></a>
+</span><span id="__span-54-7"><a id="__codelineno-54-7" name="__codelineno-54-7"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;la vitesse de propagation est de </span><span class="si">{:.2g}</span><span class="s2"> m/s soit </span><span class="si">{:.2g}</span><span class="s2"> km/h&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">v</span><span class="p">,</span><span class="n">v1</span><span class="p">))</span>
+</span></code></pre></div></td></tr></table></div>
+</div>
 </div>
 </div>
 </details>
 <details class="example">
 <summary>Exercice 6.1.5 : Distance d'un obstacle <img alt="🟢" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f7e2.svg" title=":green_circle:" /></summary>
-<div class="tabbed-set tabbed-alternate" data-tabs="56:1"><input checked="checked" id="__tabbed_56_1" name="__tabbed_56" type="radio" /><div class="tabbed-labels"><label for="__tabbed_56_1">Enoncé</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="56:2"><input checked="checked" id="__tabbed_56_1" name="__tabbed_56" type="radio" /><input id="__tabbed_56_2" name="__tabbed_56" type="radio" /><div class="tabbed-labels"><label for="__tabbed_56_1">Enoncé</label><label for="__tabbed_56_2">Solution</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>Un capteur ultrason détecte un obstacle en émettant un signal qui est réceptionné par ce dernier 1.47 ms plus tard.</p>
@@ -3733,13 +3837,27 @@ Célérité du son :       dans l'air : v<sub>air</sub> = 340 m⋅s<sup>-1</sup>
 <li>Ecrire un programme permettant de calculer la distance à laquelle se trouve l'obstacle.</li>
 </ol>
 </div>
+<div class="tabbed-block">
+<div class="language-py highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-55-1">1</a></span>
+<span class="normal"><a href="#__codelineno-55-2">2</a></span>
+<span class="normal"><a href="#__codelineno-55-3">3</a></span>
+<span class="normal"><a href="#__codelineno-55-4">4</a></span>
+<span class="normal"><a href="#__codelineno-55-5">5</a></span>
+<span class="normal"><a href="#__codelineno-55-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-55-1"><a id="__codelineno-55-1" name="__codelineno-55-1"></a><span class="n">v</span><span class="o">=</span><span class="mi">340</span> <span class="c1">#m/s</span>
+</span><span id="__span-55-2"><a id="__codelineno-55-2" name="__codelineno-55-2"></a><span class="n">t</span><span class="o">=</span><span class="mf">1.47</span> <span class="c1">#ms</span>
+</span><span id="__span-55-3"><a id="__codelineno-55-3" name="__codelineno-55-3"></a>
+</span><span id="__span-55-4"><a id="__codelineno-55-4" name="__codelineno-55-4"></a><span class="n">d</span><span class="o">=</span><span class="n">v</span><span class="o">*</span><span class="n">t</span><span class="o">*</span><span class="mf">1e-3</span><span class="o">/</span><span class="mi">2</span>
+</span><span id="__span-55-5"><a id="__codelineno-55-5" name="__codelineno-55-5"></a>
+</span><span id="__span-55-6"><a id="__codelineno-55-6" name="__codelineno-55-6"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;La distance à laquelle se trouve l&#39;obstacle est </span><span class="si">{:.3g}</span><span class="s2"> m&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">d</span><span class="p">))</span>
+</span></code></pre></div></td></tr></table></div>
+</div>
 </div>
 </div>
 </details>
 <h2 id="theme-7-vision-et-image">Thème 7 : Vision et image</h2>
 <details class="example">
 <summary>Activité expérimentale 7.1.1 : Analyse spectrale d’une source de lumière <img alt="⚫" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/26ab.svg" title=":black_circle:" /></summary>
-<div class="tabbed-set tabbed-alternate" data-tabs="57:2"><input checked="checked" id="__tabbed_57_1" name="__tabbed_57" type="radio" /><input id="__tabbed_57_2" name="__tabbed_57" type="radio" /><div class="tabbed-labels"><label for="__tabbed_57_1">Contexte</label><label for="__tabbed_57_2">Enoncé</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="57:3"><input checked="checked" id="__tabbed_57_1" name="__tabbed_57" type="radio" /><input id="__tabbed_57_2" name="__tabbed_57" type="radio" /><input id="__tabbed_57_3" name="__tabbed_57" type="radio" /><div class="tabbed-labels"><label for="__tabbed_57_1">Contexte</label><label for="__tabbed_57_2">Enoncé</label><label for="__tabbed_57_3">Solution</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>Tout corps suffisamment chauffé émet de la lumière. En observant la lumière produite par ces sources avec un 
@@ -3756,6 +3874,56 @@ couleur et la longueur d’onde des radiations émises et indiquent s’il s’a
 <li>Ecrire un programme permettant de représenter les spectres d'émission de chaque source.<br />
 Voici le relevé pour la lampe à mercure : 405 nm ; 435 nm ; 545 nm ; 575 nm ; 580 nm.</li>
 </ol>
+</div>
+<div class="tabbed-block">
+<div class="language-py highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-56-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-56-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-56-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-56-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-56-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-56-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-56-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-56-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-56-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-56-10">10</a></span>
+<span class="normal"><a href="#__codelineno-56-11">11</a></span>
+<span class="normal"><a href="#__codelineno-56-12">12</a></span>
+<span class="normal"><a href="#__codelineno-56-13">13</a></span>
+<span class="normal"><a href="#__codelineno-56-14">14</a></span>
+<span class="normal"><a href="#__codelineno-56-15">15</a></span>
+<span class="normal"><a href="#__codelineno-56-16">16</a></span>
+<span class="normal"><a href="#__codelineno-56-17">17</a></span>
+<span class="normal"><a href="#__codelineno-56-18">18</a></span>
+<span class="normal"><a href="#__codelineno-56-19">19</a></span>
+<span class="normal"><a href="#__codelineno-56-20">20</a></span>
+<span class="normal"><a href="#__codelineno-56-21">21</a></span>
+<span class="normal"><a href="#__codelineno-56-22">22</a></span>
+<span class="normal"><a href="#__codelineno-56-23">23</a></span>
+<span class="normal"><a href="#__codelineno-56-24">24</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-56-1"><a id="__codelineno-56-1" name="__codelineno-56-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+</span><span id="__span-56-2"><a id="__codelineno-56-2" name="__codelineno-56-2"></a>
+</span><span id="__span-56-3"><a id="__codelineno-56-3" name="__codelineno-56-3"></a><span class="n">raies</span><span class="o">=</span><span class="p">[</span><span class="mi">405</span><span class="p">,</span><span class="mi">435</span><span class="p">,</span><span class="mi">545</span><span class="p">,</span><span class="mi">575</span><span class="p">,</span><span class="mi">580</span><span class="p">]</span> <span class="c1">#Longueurs d&#39;onde en nm</span>
+</span><span id="__span-56-4"><a id="__codelineno-56-4" name="__codelineno-56-4"></a>
+</span><span id="__span-56-5"><a id="__codelineno-56-5" name="__codelineno-56-5"></a><span class="n">l</span><span class="o">=</span><span class="mi">1</span> <span class="c1">#Largeur des raies sur le spectre</span>
+</span><span id="__span-56-6"><a id="__codelineno-56-6" name="__codelineno-56-6"></a><span class="n">wl_min</span><span class="o">=</span> <span class="mi">380</span> <span class="c1">#Longueur d&#39;onde min</span>
+</span><span id="__span-56-7"><a id="__codelineno-56-7" name="__codelineno-56-7"></a><span class="n">wl_max</span> <span class="o">=</span> <span class="mi">780</span> <span class="c1">#Longueur d&#39;onde max</span>
+</span><span id="__span-56-8"><a id="__codelineno-56-8" name="__codelineno-56-8"></a>
+</span><span id="__span-56-9"><a id="__codelineno-56-9" name="__codelineno-56-9"></a><span class="n">fig</span><span class="p">,</span><span class="n">ax</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+</span><span id="__span-56-10"><a id="__codelineno-56-10" name="__codelineno-56-10"></a><span class="n">ax</span><span class="o">.</span><span class="n">set_facecolor</span><span class="p">(</span><span class="s2">&quot;black&quot;</span><span class="p">)</span>
+</span><span id="__span-56-11"><a id="__codelineno-56-11" name="__codelineno-56-11"></a><span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Spectre d&#39;émission&quot;</span><span class="p">)</span>
+</span><span id="__span-56-12"><a id="__codelineno-56-12" name="__codelineno-56-12"></a>
+</span><span id="__span-56-13"><a id="__codelineno-56-13" name="__codelineno-56-13"></a><span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">get_cmap</span><span class="p">(</span><span class="s2">&quot;turbo&quot;</span><span class="p">)</span> <span class="c1">#Mapping des couleurs des raies entre 380nm et 780 nm</span>
+</span><span id="__span-56-14"><a id="__codelineno-56-14" name="__codelineno-56-14"></a>
+</span><span id="__span-56-15"><a id="__codelineno-56-15" name="__codelineno-56-15"></a><span class="k">for</span> <span class="n">wl</span> <span class="ow">in</span> <span class="n">raies</span><span class="p">:</span>
+</span><span id="__span-56-16"><a id="__codelineno-56-16" name="__codelineno-56-16"></a>    <span class="n">wl_norm</span><span class="o">=</span><span class="p">(</span><span class="n">wl</span><span class="o">-</span><span class="n">wl_min</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">wl_max</span><span class="o">-</span><span class="n">wl_min</span><span class="p">)</span> <span class="c1">#Normalisation de la longueur d&#39;onde</span>
+</span><span id="__span-56-17"><a id="__codelineno-56-17" name="__codelineno-56-17"></a>    <span class="n">couleur</span><span class="o">=</span><span class="n">cmap</span><span class="p">(</span><span class="n">wl_norm</span><span class="p">)</span> <span class="c1">#Renvoie la couleur associée</span>
+</span><span id="__span-56-18"><a id="__codelineno-56-18" name="__codelineno-56-18"></a>
+</span><span id="__span-56-19"><a id="__codelineno-56-19" name="__codelineno-56-19"></a>    <span class="n">ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">wl</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">couleur</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="n">l</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;solid&#39;</span><span class="p">)</span> <span class="c1">#Tracé de la raie</span>
+</span><span id="__span-56-20"><a id="__codelineno-56-20" name="__codelineno-56-20"></a>
+</span><span id="__span-56-21"><a id="__codelineno-56-21" name="__codelineno-56-21"></a><span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="n">wl_min</span><span class="p">,</span> <span class="n">wl_max</span><span class="p">)</span>
+</span><span id="__span-56-22"><a id="__codelineno-56-22" name="__codelineno-56-22"></a><span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Longueur d&#39;onde (nm)&quot;</span><span class="p">)</span>
+</span><span id="__span-56-23"><a id="__codelineno-56-23" name="__codelineno-56-23"></a>
+</span><span id="__span-56-24"><a id="__codelineno-56-24" name="__codelineno-56-24"></a><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</span></code></pre></div></td></tr></table></div>
 </div>
 </div>
 </div>
