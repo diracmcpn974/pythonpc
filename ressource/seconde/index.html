@@ -4451,7 +4451,7 @@ résistance.</li>
 </details>
 <details class="example">
 <summary>Activité expérimentale 8.1.2 : Etalonnage d'une thermistance <img alt="🔴" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f534.svg" title=":red_circle:" /></summary>
-<div class="tabbed-set tabbed-alternate" data-tabs="67:2"><input checked="checked" id="__tabbed_67_1" name="__tabbed_67" type="radio" /><input id="__tabbed_67_2" name="__tabbed_67" type="radio" /><div class="tabbed-labels"><label for="__tabbed_67_1">Contexte</label><label for="__tabbed_67_2">Enoncé</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="67:3"><input checked="checked" id="__tabbed_67_1" name="__tabbed_67" type="radio" /><input id="__tabbed_67_2" name="__tabbed_67" type="radio" /><input id="__tabbed_67_3" name="__tabbed_67" type="radio" /><div class="tabbed-labels"><label for="__tabbed_67_1">Contexte</label><label for="__tabbed_67_2">Enoncé</label><label for="__tabbed_67_3">Solution</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>Les sondes de température utilisent des thermistances qui déclenchent des dispositifs de chauffage actuel
@@ -4468,12 +4468,40 @@ et en déduit à partir de la courbe la température de la pièce à l'aide de l
 </ol>
 <p>Voici le fichier de mesures <a href="thermistance.csv">ici</a></p>
 </div>
+<div class="tabbed-block">
+<div class="language-py highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-66-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-66-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-66-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-66-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-66-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-66-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-66-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-66-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-66-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-66-10">10</a></span>
+<span class="normal"><a href="#__codelineno-66-11">11</a></span>
+<span class="normal"><a href="#__codelineno-66-12">12</a></span>
+<span class="normal"><a href="#__codelineno-66-13">13</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-66-1"><a id="__codelineno-66-1" name="__codelineno-66-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+</span><span id="__span-66-2"><a id="__codelineno-66-2" name="__codelineno-66-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+</span><span id="__span-66-3"><a id="__codelineno-66-3" name="__codelineno-66-3"></a>
+</span><span id="__span-66-4"><a id="__codelineno-66-4" name="__codelineno-66-4"></a><span class="n">T</span><span class="p">,</span><span class="n">R</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s2">&quot;thermistance.csv&quot;</span><span class="p">,</span><span class="n">delimiter</span><span class="o">=</span><span class="s2">&quot;;&quot;</span><span class="p">,</span><span class="n">skiprows</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">usecols</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span><span class="n">unpack</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span><span id="__span-66-5"><a id="__codelineno-66-5" name="__codelineno-66-5"></a>
+</span><span id="__span-66-6"><a id="__codelineno-66-6" name="__codelineno-66-6"></a><span class="n">fig</span><span class="p">,</span><span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+</span><span id="__span-66-7"><a id="__codelineno-66-7" name="__codelineno-66-7"></a>
+</span><span id="__span-66-8"><a id="__codelineno-66-8" name="__codelineno-66-8"></a><span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="n">R</span><span class="p">,</span><span class="s2">&quot;+-&quot;</span><span class="p">)</span>
+</span><span id="__span-66-9"><a id="__codelineno-66-9" name="__codelineno-66-9"></a><span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Température (en °C)&quot;</span><span class="p">)</span>
+</span><span id="__span-66-10"><a id="__codelineno-66-10" name="__codelineno-66-10"></a><span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Résistance (en Ohms)&quot;</span><span class="p">)</span>
+</span><span id="__span-66-11"><a id="__codelineno-66-11" name="__codelineno-66-11"></a><span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Courbe d&#39;étalonnage de la thermistance&quot;</span><span class="p">)</span>
+</span><span id="__span-66-12"><a id="__codelineno-66-12" name="__codelineno-66-12"></a>
+</span><span id="__span-66-13"><a id="__codelineno-66-13" name="__codelineno-66-13"></a><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</span></code></pre></div></td></tr></table></div>
+</div>
 </div>
 </div>
 </details>
 <details class="example">
 <summary>Exercice 8.1.1 : Valeur d'une résistance <img alt="🔴" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f534.svg" title=":red_circle:" /></summary>
-<div class="tabbed-set tabbed-alternate" data-tabs="68:1"><input checked="checked" id="__tabbed_68_1" name="__tabbed_68" type="radio" /><div class="tabbed-labels"><label for="__tabbed_68_1">Enoncé</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="68:2"><input checked="checked" id="__tabbed_68_1" name="__tabbed_68" type="radio" /><input id="__tabbed_68_2" name="__tabbed_68" type="radio" /><div class="tabbed-labels"><label for="__tabbed_68_1">Enoncé</label><label for="__tabbed_68_2">Solution</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>Voici le code couleur des résistances : </p>
@@ -4481,6 +4509,78 @@ et en déduit à partir de la courbe la température de la pièce à l'aide de l
 <ol>
 <li>Ecrire un programme permettant de donner la valeur d'une résistance (4 anneaux) à partir de la couleur des anneaux.</li>
 </ol>
+</div>
+<div class="tabbed-block">
+<div class="language-py highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-67-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-67-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-67-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-67-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-67-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-67-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-67-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-67-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-67-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-67-10">10</a></span>
+<span class="normal"><a href="#__codelineno-67-11">11</a></span>
+<span class="normal"><a href="#__codelineno-67-12">12</a></span>
+<span class="normal"><a href="#__codelineno-67-13">13</a></span>
+<span class="normal"><a href="#__codelineno-67-14">14</a></span>
+<span class="normal"><a href="#__codelineno-67-15">15</a></span>
+<span class="normal"><a href="#__codelineno-67-16">16</a></span>
+<span class="normal"><a href="#__codelineno-67-17">17</a></span>
+<span class="normal"><a href="#__codelineno-67-18">18</a></span>
+<span class="normal"><a href="#__codelineno-67-19">19</a></span>
+<span class="normal"><a href="#__codelineno-67-20">20</a></span>
+<span class="normal"><a href="#__codelineno-67-21">21</a></span>
+<span class="normal"><a href="#__codelineno-67-22">22</a></span>
+<span class="normal"><a href="#__codelineno-67-23">23</a></span>
+<span class="normal"><a href="#__codelineno-67-24">24</a></span>
+<span class="normal"><a href="#__codelineno-67-25">25</a></span>
+<span class="normal"><a href="#__codelineno-67-26">26</a></span>
+<span class="normal"><a href="#__codelineno-67-27">27</a></span>
+<span class="normal"><a href="#__codelineno-67-28">28</a></span>
+<span class="normal"><a href="#__codelineno-67-29">29</a></span>
+<span class="normal"><a href="#__codelineno-67-30">30</a></span>
+<span class="normal"><a href="#__codelineno-67-31">31</a></span>
+<span class="normal"><a href="#__codelineno-67-32">32</a></span>
+<span class="normal"><a href="#__codelineno-67-33">33</a></span>
+<span class="normal"><a href="#__codelineno-67-34">34</a></span>
+<span class="normal"><a href="#__codelineno-67-35">35</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-67-1"><a id="__codelineno-67-1" name="__codelineno-67-1"></a><span class="n">chiffre_significatif</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;noir&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
+</span><span id="__span-67-2"><a id="__codelineno-67-2" name="__codelineno-67-2"></a>                      <span class="s2">&quot;marron&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
+</span><span id="__span-67-3"><a id="__codelineno-67-3" name="__codelineno-67-3"></a>                      <span class="s2">&quot;rouge&quot;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span>
+</span><span id="__span-67-4"><a id="__codelineno-67-4" name="__codelineno-67-4"></a>                      <span class="s2">&quot;orange&quot;</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span>
+</span><span id="__span-67-5"><a id="__codelineno-67-5" name="__codelineno-67-5"></a>                      <span class="s2">&quot;jaune&quot;</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span>
+</span><span id="__span-67-6"><a id="__codelineno-67-6" name="__codelineno-67-6"></a>                      <span class="s2">&quot;vert&quot;</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span>
+</span><span id="__span-67-7"><a id="__codelineno-67-7" name="__codelineno-67-7"></a>                      <span class="s2">&quot;bleu&quot;</span><span class="p">:</span><span class="mi">6</span><span class="p">,</span>
+</span><span id="__span-67-8"><a id="__codelineno-67-8" name="__codelineno-67-8"></a>                      <span class="s2">&quot;violet&quot;</span><span class="p">:</span><span class="mi">7</span><span class="p">,</span>
+</span><span id="__span-67-9"><a id="__codelineno-67-9" name="__codelineno-67-9"></a>                      <span class="s2">&quot;gris&quot;</span><span class="p">:</span><span class="mi">8</span><span class="p">,</span>
+</span><span id="__span-67-10"><a id="__codelineno-67-10" name="__codelineno-67-10"></a>                      <span class="s2">&quot;blanc&quot;</span><span class="p">:</span><span class="mi">9</span><span class="p">}</span>
+</span><span id="__span-67-11"><a id="__codelineno-67-11" name="__codelineno-67-11"></a>
+</span><span id="__span-67-12"><a id="__codelineno-67-12" name="__codelineno-67-12"></a><span class="n">multiplicateur</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;argent&quot;</span><span class="p">:</span><span class="mf">0.01</span><span class="p">,</span>
+</span><span id="__span-67-13"><a id="__codelineno-67-13" name="__codelineno-67-13"></a>                <span class="s2">&quot;or&quot;</span><span class="p">:</span><span class="mf">0.1</span><span class="p">,</span>
+</span><span id="__span-67-14"><a id="__codelineno-67-14" name="__codelineno-67-14"></a>                <span class="s2">&quot;noir&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+</span><span id="__span-67-15"><a id="__codelineno-67-15" name="__codelineno-67-15"></a>                <span class="s2">&quot;marron&quot;</span><span class="p">:</span><span class="mi">10</span><span class="p">,</span>
+</span><span id="__span-67-16"><a id="__codelineno-67-16" name="__codelineno-67-16"></a>                <span class="s2">&quot;rouge&quot;</span><span class="p">:</span><span class="mi">100</span><span class="p">,</span>
+</span><span id="__span-67-17"><a id="__codelineno-67-17" name="__codelineno-67-17"></a>                <span class="s2">&quot;orange&quot;</span><span class="p">:</span><span class="mf">1e3</span><span class="p">,</span>
+</span><span id="__span-67-18"><a id="__codelineno-67-18" name="__codelineno-67-18"></a>                <span class="s2">&quot;jaune&quot;</span><span class="p">:</span><span class="mf">10e3</span><span class="p">,</span>
+</span><span id="__span-67-19"><a id="__codelineno-67-19" name="__codelineno-67-19"></a>                <span class="s2">&quot;vert&quot;</span><span class="p">:</span><span class="mf">100e3</span><span class="p">,</span>
+</span><span id="__span-67-20"><a id="__codelineno-67-20" name="__codelineno-67-20"></a>                <span class="s2">&quot;bleu&quot;</span><span class="p">:</span><span class="mf">1e6</span><span class="p">,</span>
+</span><span id="__span-67-21"><a id="__codelineno-67-21" name="__codelineno-67-21"></a>                <span class="s2">&quot;violet&quot;</span><span class="p">:</span><span class="mf">10e6</span><span class="p">}</span>       
+</span><span id="__span-67-22"><a id="__codelineno-67-22" name="__codelineno-67-22"></a>
+</span><span id="__span-67-23"><a id="__codelineno-67-23" name="__codelineno-67-23"></a><span class="n">tolerance</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;argent&quot;</span><span class="p">:</span><span class="s2">&quot;±10%&quot;</span><span class="p">,</span>
+</span><span id="__span-67-24"><a id="__codelineno-67-24" name="__codelineno-67-24"></a>           <span class="s2">&quot;or&quot;</span><span class="p">:</span><span class="s2">&quot;±5%&quot;</span><span class="p">,</span>
+</span><span id="__span-67-25"><a id="__codelineno-67-25" name="__codelineno-67-25"></a>           <span class="s2">&quot;marron&quot;</span><span class="p">:</span><span class="s2">&quot;±1%&quot;</span><span class="p">,</span>
+</span><span id="__span-67-26"><a id="__codelineno-67-26" name="__codelineno-67-26"></a>           <span class="s2">&quot;rouge&quot;</span><span class="p">:</span><span class="s2">&quot;±2%&quot;</span><span class="p">,</span>
+</span><span id="__span-67-27"><a id="__codelineno-67-27" name="__codelineno-67-27"></a>           <span class="s2">&quot;vert&quot;</span><span class="p">:</span><span class="s2">&quot;±0.5%&quot;</span><span class="p">,</span>
+</span><span id="__span-67-28"><a id="__codelineno-67-28" name="__codelineno-67-28"></a>           <span class="s2">&quot;bleu&quot;</span><span class="p">:</span><span class="s2">&quot;±0.25%&quot;</span><span class="p">,</span>
+</span><span id="__span-67-29"><a id="__codelineno-67-29" name="__codelineno-67-29"></a>           <span class="s2">&quot;violet&quot;</span><span class="p">:</span><span class="s2">&quot;±0.1%&quot;</span><span class="p">}</span> 
+</span><span id="__span-67-30"><a id="__codelineno-67-30" name="__codelineno-67-30"></a>
+</span><span id="__span-67-31"><a id="__codelineno-67-31" name="__codelineno-67-31"></a><span class="n">resistance</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;jaune&quot;</span><span class="p">,</span><span class="s2">&quot;violet&quot;</span><span class="p">,</span><span class="s2">&quot;vert&quot;</span><span class="p">,</span><span class="s2">&quot;or&quot;</span><span class="p">]</span>
+</span><span id="__span-67-32"><a id="__codelineno-67-32" name="__codelineno-67-32"></a>
+</span><span id="__span-67-33"><a id="__codelineno-67-33" name="__codelineno-67-33"></a><span class="n">valeur</span><span class="o">=</span><span class="p">(</span><span class="n">chiffre_significatif</span><span class="p">[</span><span class="n">resistance</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span><span class="o">*</span><span class="mi">10</span><span class="o">+</span><span class="n">chiffre_significatif</span><span class="p">[</span><span class="n">resistance</span><span class="p">[</span><span class="mi">1</span><span class="p">]])</span><span class="o">*</span><span class="n">multiplicateur</span><span class="p">[</span><span class="n">resistance</span><span class="p">[</span><span class="mi">2</span><span class="p">]]</span>
+</span><span id="__span-67-34"><a id="__codelineno-67-34" name="__codelineno-67-34"></a>
+</span><span id="__span-67-35"><a id="__codelineno-67-35" name="__codelineno-67-35"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;La valeur de la résistance est de </span><span class="si">{:.2g}</span><span class="s2"> Ω </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">valeur</span><span class="p">,</span><span class="n">tolerance</span><span class="p">[</span><span class="n">resistance</span><span class="p">[</span><span class="mi">3</span><span class="p">]]))</span>
+</span></code></pre></div></td></tr></table></div>
 </div>
 </div>
 </div>
